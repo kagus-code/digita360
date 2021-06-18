@@ -26,17 +26,19 @@
                         </div>
                         <div class="form-input">
                             <h2>Login Form</h2>
-                            <form>
+
+                            <form [formGroup]="form"  (submit)="submit()"  >
                                 <div class="form-group">
-                                    <input type="number"  id="" name="name" required>
+                                    <input formControlName="phone_number" type="number"  id="" name="PhoneNumber"  required>
                                     <label>Phone Number</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" id="" name="password" required>
+                                    <input formControlName="password" type="password" id="" name="Password" required>
                                     <label>password</label>
                                 </div>
                                 <div class="myform-button">
-                                    <button class="myform-btn" routerLink="/home">Login</button>
+                                    <button class="myform-btn" type="submit"  >Login</button>
+
                                 </div>
                                 <div class="form-content">
                                     <a routerLink="/registration"><label for="">Sign Up Here!</label></a>   
