@@ -1,0 +1,27 @@
+.category-name{
+    padding-top: 55px;
+    background-color: #bf362e;
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    padding-bottom: 55px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+
+.transaction-btn{
+   
+    padding-top: 7px;
+    padding-bottom: 7px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.t-active{
+    background-color: #bf362e;
+    color: white;
+}
+

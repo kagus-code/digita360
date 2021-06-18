@@ -1,0 +1,50 @@
+.amt-balance{
+    box-shadow: -2px 4px #888888;
+    border-radius: 5px;
+    padding: 19px;
+}
+.amt{
+    font-weight: bold;
+    font-size: 22px;
+}
+.favourites{
+    background-color: #b4b9bd;
+}
+.favourites-tag{
+    font-weight: bold;
+}
+
+
+.fav-item-inner{
+    background-color: white;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.fav-item{
+    display: inline-block;
+}
+
+.favourites-items{
+    display: inline-block;
+    
+}
+
+.add-fav-icon{
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+.bill-item{
+    box-shadow: -2px 4px #888888;
+    border-radius: 5px;
+    padding: 19px;
+    width: 100%;
+}
