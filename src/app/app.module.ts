@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule , routingComponents} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -13,6 +13,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { InsightsComponent } from './components/insights/insights.component';
+import { ActivationComponent } from './components/activation/activation.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { InsightsComponent } from './components/insights/insights.component';
     LandingComponent,
     CategoryDetailsComponent,
     PaymentComponent,
-    InsightsComponent
+    InsightsComponent,
+    routingComponents,
+    ActivationComponent,
   ],
   imports: [
     BrowserModule,
