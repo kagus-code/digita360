@@ -23,29 +23,63 @@
                         </div>
                         <div class="form-input">
                             <h2>Activation Form</h2>
-                            <form>  
+                            <form [formGroup]="activationForm" (ngSubmit)='onsubmit()' enctype="multipart/form-data">  
                                 <div class="form-group">
-                                    <input type="number"  id="" name="name" required>
+                                    <input 
+                                      type="number"  
+                                      id="nat_id" 
+                                      formControlName="identification_number"
+
+                                      required>
                                     <label>National ID or Passport Number</label>
                                 </div>
                                 <div class="form-group">
                                     <label>National ID or Passport Image</label><br><br>
-                                    <input type="file"  id="" name="name" required> 
+                                    <input 
+                                       type="file"  
+                                       id="nat_id_img" 
+                                       name="identification_doc" (change)="onChange($event)"
+                                       formControlName="identification_doc" 
+                                       required> 
                                 </div>
                                 <div class="form-group">
                                     <label>Personal Photo</label><br><br>
-                                    <input type="file"  id="" name="name" required> 
+                                    <input 
+                                        type="file"  
+                                        id="passport_photo" 
+                                        name="passport_photo" (change)="onChange1($event)"
+                                        formControlName="passport_photo" 
+                                        required> 
                                 </div>
                                 <div class="form-group">
-                                    <input type="number"  id="" name="name" required>
+                                    <label>Driving License Image</label><br><br>
+                                    <input 
+                                        type="file"  
+                                        id="driving_license_picture" 
+                                        name="driving_license_picture" (change)="onChange2($event)"
+                                        formControlName="driving_license_picture" 
+                                        > 
+                                </div>
+                                <div class="form-group">
+                                    <input 
+                                    type="text"  
+                                    id="KRA_pin" 
+                                    formControlName="KRA_pin" 
+                                    required>
                                     <label>KRA PIN</label>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text"  id="" name="name" required>
+                                    <input 
+                                      type="text"  
+                                      id="residence" 
+                                      formControlName="residence" 
+                                      required>
                                     <label>County Of Residency</label>
                                 </div>
                                 <div class="myform-button">
-                                    <button class="myform-btn" routerLink="/">Activate</button>
+                                    <button 
+                                    class="myform-btn" 
+                                    type="submit">Activate</button>
                                 </div>                          
                             </form>
                         </div>

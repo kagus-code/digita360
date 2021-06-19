@@ -45,7 +45,11 @@ export class RegistrationComponent implements OnInit {
   submit(): void{
     this.http.post('http://localhost:8000/api/user/register/',this.form.getRawValue()).subscribe(response =>{console.log(response)
       alert("You have been Successfully Registered")
-      this.router.navigateByUrl('/login');
+
+
+      // this.router.navigateByUrl('/acti/par');
+      this.router.navigate(['/activation',this.form.get('phone_number').value ]);
+
     })
   }
 

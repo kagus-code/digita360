@@ -10,7 +10,7 @@ import { CategoryDetailsComponent } from './components/category-details/category
 const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: 'registration', component: RegistrationComponent},
-  { path: 'activation', component: ActivationComponent},
+  { path: 'activation/:id', component: ActivationComponent},
   { path: 'home', component: LandingComponent},
   { path: 'category-details', component:CategoryDetailsComponent}
 ];
