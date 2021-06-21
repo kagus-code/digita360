@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #bf362e;">
     <a class="navbar-brand text-white" routerLink="/home" >
         <h2>
-            Simply Bill Analytics
+          Digital 360
         </h2>
         
     </a>
@@ -15,6 +15,14 @@
           <li class="nav-item">
               <a routerLink="/" class="nav-link">
                 My Account
+            </a>
+          </li>
+          <li class="nav-item ml-2" >
+            <a   *ngIf="authenticated" class="nav-link" (click)="logout()">
+                  Logout
+           </a>
+           <a   *ngIf="!authenticated"  class="nav-link" routerLink='/'>
+                Login   
             </a>
           </li>
       </ul>

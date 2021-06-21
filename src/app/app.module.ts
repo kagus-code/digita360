@@ -15,6 +15,8 @@ import { CategoryDetailsComponent } from './components/category-details/category
 import { PaymentComponent } from './components/payment/payment.component';
 import { InsightsComponent } from './components/insights/insights.component';
 import { ActivationComponent } from './components/activation/activation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material/material.module';
 import { PaybillComponent } from './components/payment/paybill/paybill.component';
 import { TillnumberComponent } from './components/payment/tillnumber/tillnumber.component';
 import { SendmoneyComponent } from './components/payment/sendmoney/sendmoney.component';
@@ -65,6 +67,8 @@ import { AdminnavbarComponent } from './components/adminnavbar/adminnavbar.compo
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
