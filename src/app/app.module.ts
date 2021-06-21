@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +15,19 @@ import { CategoryDetailsComponent } from './components/category-details/category
 import { PaymentComponent } from './components/payment/payment.component';
 import { InsightsComponent } from './components/insights/insights.component';
 import { ActivationComponent } from './components/activation/activation.component';
+import { PaybillComponent } from './components/payment/paybill/paybill.component';
+import { TillnumberComponent } from './components/payment/tillnumber/tillnumber.component';
+import { SendmoneyComponent } from './components/payment/sendmoney/sendmoney.component';
+import { PasswordComponent } from './components/password/password.component';
+import { AdminRegistrationComponent } from './components/admin-registration/admin-registration.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AdminVerificationComponent } from './components/admin-verification/admin-verification.component';
+import { AdminVerificationdetailsComponent } from './components/admin-verificationdetails/admin-verificationdetails.component';
+import { AdminnavbarComponent } from './components/adminnavbar/adminnavbar.component';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -29,6 +43,21 @@ import { ActivationComponent } from './components/activation/activation.componen
     InsightsComponent,
     routingComponents,
     ActivationComponent,
+    PaybillComponent,
+    TillnumberComponent,
+    SendmoneyComponent,
+    PasswordComponent,
+    AdminRegistrationComponent,
+    AdminLoginComponent,
+    AdminVerificationComponent,
+    AdminVerificationdetailsComponent,
+    AdminnavbarComponent,
+    
+    
+    
+    
+    
+    
   ],
   imports: [
     BrowserModule,
