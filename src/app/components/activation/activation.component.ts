@@ -14,6 +14,17 @@ export class ActivationComponent implements OnInit {
 
   phone_number:any
 
+  server_errors:boolean
+
+  success:any
+
+  success_submit:boolean=true
+
+  submitted:boolean=false;
+
+  loading:boolean = false
+
+
 
   constructor(private http:HttpClient, private router:Router, private route:ActivatedRoute) { }
 
@@ -29,12 +40,11 @@ export class ActivationComponent implements OnInit {
     });
 
     this.route.params.subscribe( params => {
-       this.phone_number = params.id
-
-       console.log(this.phone_number)
-      //  console.log(params.get('id'))
-    })
+                                     this.phone_number = params.id
+                               }
+    )
   }
+
 
   onChange(event){
     if (event.target.files.length > 0) {
@@ -59,6 +69,8 @@ export class ActivationComponent implements OnInit {
     }
   }
 
+
+
   onsubmit(){
     const formData = new FormData();
     formData.append('identification_number', this.activationForm.get('identification_number').value);
@@ -68,19 +80,97 @@ export class ActivationComponent implements OnInit {
     formData.append('KRA_pin', this.activationForm.get('KRA_pin').value);
     formData.append('residence', this.activationForm.get('residence').value);
     
+    this.submitted=true  //form submitted
 
+    this.loading=true    //form loadng
     
-    this.http.
-              post(`http://localhost:8000/api/activation-post/${this.phone_number}/`,formData)  //this.activationForm.getRawValue()
-              .subscribe( 
-                        response =>{  
-                                    console.log(response)
-           
-           
-         alert("Your documents have been uploaded pending verification and approval.")
-      // this.router.navigateByUrl('/login');
-    })
-  }
+        if(this.activationForm.valid){
+                  this.http
+                        .post(`http://localhost:8000/api/activation-post/${this.phone_number}/`,formData)  
+                        .subscribe( 
+                            response =>{  
+                                this.success= "Your documents have been uploaded pending verification and approval."
+
+                                this.loading=false
+   
+                                this.activationForm.reset()
+
+                                this.submitted=false
+
+                                this.success_submit=false
+                              },
+                              
+                              error => 
+                              {
+                                console.log(error);
+                                
+                                this.server_errors= true
+                              
+                                this.loading=false
+                                
+                              
+                              }
+                            
+                        )
+        }else{
+          this.loading=false
+        }
+
+
+        
+  
+   }
+
+   counties= [
+    'Mombasa',
+    'Kwale',
+    'Kilifi',
+    'Tana River',
+    'Lamu',
+    'Taita/Taveta',
+    'Garissa',
+    'Wajir',
+    'Mandera',
+    'Marsabit',
+    'Isiolo',
+    'Meru',
+    'Tharaka-Nithi',
+    'Embu',
+    'Kitui',
+    'Machakos',
+    'Makueni',
+    'Nyandarua',
+    'Nyeri',
+    'Kirinyaga',
+    'Muranga',
+    'Kiambu',
+    'Turkana',
+    'West Pokot',
+    'Samburu',
+    'Trans Nzoia',
+    'Uasin Gishu',
+    'Elgeyo/Marakwet',
+    'Nandi',
+    'Baringo',
+    'Laikipia',
+    'Nakuru',
+    'Narok',
+    'Kajiado',
+    'Kericho',
+    'Bomet',
+    'Kakamega',
+    'Vihiga',
+    'Bungoma',
+    'Busia',
+    'Siaya',
+    'Kisumu',
+    'Homa Bay',
+    'Migori',
+    'Kisii',
+    'Nyamira',
+    'Nairobi City'
+   ]
+
 
 
 }

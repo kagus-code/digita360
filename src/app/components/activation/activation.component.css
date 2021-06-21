@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
 
-* {
+/* * {
     margin:0;
     padding:0;
-}
+} */
 a,a:hover{
   text-decoration: none;
 }
@@ -186,4 +186,26 @@ a,a:hover{
 }
 .myform-area .form-area .myform-button .myform-btn:hover{
     background: #07315B;
+}
+
+
+.help-block{
+  color: red;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+.myform-reset-btn{
+  width: 100%;
+  height: 50px;
+  font-size: 17px;
+  background: #07315B;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
 }
