@@ -26,6 +26,7 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { AdminVerificationComponent } from './components/admin-verification/admin-verification.component';
 import { AdminVerificationdetailsComponent } from './components/admin-verificationdetails/admin-verificationdetails.component';
 import { AdminnavbarComponent } from './components/adminnavbar/adminnavbar.component';
+// import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 
 
 
@@ -54,6 +55,7 @@ import { AdminnavbarComponent } from './components/adminnavbar/adminnavbar.compo
     AdminVerificationComponent,
     AdminVerificationdetailsComponent,
     AdminnavbarComponent,
+    // AdminNavbarComponent,
     
     
     

@@ -1,4 +1,72 @@
-<!DOCTYPE html>
+<app-navbar></app-navbar>
+<div class="container mt-3">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Approve</th>
+          </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let user of users; index as i">
+                    <td>{{ i+1 }}</td>
+                    <td>{{ user.first_name}}</td>
+                    <td>{{ user.last_name}}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email}}</td>
+                    <td>{{ user.phone_number}}</td>
+                    <td>
+                            <a href="/lorem/{{user.phone_number}}">user</a>
+                    </td>
+            </tr>
+          
+        </tbody>
+      </table>
+     
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +84,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Raleway:wght@200;400&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
     <title>Payment</title>
 </head>
-<body>
+<body> -->
     <!-- <header>
         <a class="cta" routerLink="/adminverify">Admin Panel</a>
         <nav>
@@ -33,7 +101,7 @@
     <i></i> -->
     
     
-    <div class="header_fixed">
+    <!-- <div class="header_fixed">
         <app-adminnavbar></app-adminnavbar>
         <br>
         <br>
@@ -87,4 +155,4 @@
 
 
 
-</body>
+</body> -->
