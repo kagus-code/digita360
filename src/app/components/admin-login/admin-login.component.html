@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Animated Login Form</title>
-	
-	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-</head>
-<body>
    
     <section class="myform-area">
         <div class="container">
@@ -21,7 +10,7 @@
                             <p>Your data privacy is our highest priority</p>
                             <ul>
                                 
-                                <li>
+                                <li class="mb-2">
                                     <a routerLink="/" class="facebook">
                                         
                                           <span>
@@ -50,23 +39,45 @@
                         </div>
                         <div class="form-input">
                             <h2>Admin Login Form</h2>
-                            <form  >
+                                  <!-- on invalid form -->
+                                  <div *ngIf="submitted && !form.valid"  class="alert alert-danger alert-dismissible my-2" role="alert">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <small>Invalid form, please provide all the required details.</small>
+                                </div>
+   
+                                <!-- on server_errors -->
+                                <div *ngIf="server_errors"  class="alert alert-danger alert-dismissible my-2" role="alert">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <small class="my-2">{{server_errors.detail}}</small>
+                                </div>
+                            <form [formGroup]="form"  (submit)="submit()"  >
                                 <div class="form-group">
-                                    <input formControlName="email" type="email"  id="email" name="Email"  required>
-                                    <label>Email address</label>
+                                    <input formControlName="phone_number" type="number"  id="phone_number" required>
+                                    <label>Phone Number</label>
                                 </div>
+                                <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">
+                                  
+                                    Please enter phone number!
+                              </small>
                                 <div class="form-group">
-                                    <input formControlName="password" type="password" id="password" name="Password" required>
-                                    <label>Password</label>
+                                    <input formControlName="password" type="password" id="password" required>
+                                    <label>password</label>
                                 </div>
+                                <small class="help-block" *ngIf="!form.get('password').valid && form.get('password').touched">
+                                  
+                                    Please enter password!
+                              </small>
+                              <div *ngIf='loading' class="mt-3">
+                                <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+                              </div>
                                 <div class="myform-button">
-                                    <button class="myform-btn" type="submit" routerLink="/adminverify" >Login</button>
+                                    <button class="myform-btn" type="submit"  >Login</button>
+  
                                 </div>
-                                <div class="myform-button">
-                                    
-                                    <a routerLink="/adminregister"><label for="">Register Admin</label></a>   
+                                <div class="form-content">
+                                    <a routerLink="/adminregister"><label for="">Sign Up Here!</label></a>  
                                 </div>
-                                
+                               
                             </form>
                         </div>
                     </div>
@@ -75,6 +86,3 @@
         </div>
     </section>
 
-
-</body>
-</html>

@@ -12,11 +12,6 @@
                         </div>
                         <div class="form-input">
                             <h2>Activation Form</h2>
-                            <!-- on success message -->
-                            <div *ngIf="success"  class="alert alert-success alert-dismissible my-2" role="alert">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                 <small>{{success}} </small>
-                            </div>
                             <!-- on invalid form -->
                             <div *ngIf="submitted && !activationForm.valid"  class="alert alert-danger alert-dismissible my-2" role="alert">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -31,7 +26,6 @@
 
                             <!-- form -->
                             <form *ngIf='success_submit' [formGroup]="activationForm" (ngSubmit)='onsubmit()' enctype="multipart/form-data">  
-
                                 <div class="form-group">
                                     <input 
                                       type="number"  
@@ -104,7 +98,6 @@
                                 
                                 <div class="form-group">
                                     <!-- <input 
-
                                       type="text"  
                                       id="residence" 
                                       formControlName="residence" 
@@ -114,7 +107,6 @@
                                         <option [ngValue]="null" disabled>Choose County of Residence</option>
                                            <option *ngFor="let county of counties" [ngValue]="county">{{county}}</option>
                                     </select>
-
                                 </div>
                                 <small class="help-block" *ngIf="!activationForm.get('residence').valid && activationForm.get('residence').touched">
                                    
@@ -130,7 +122,6 @@
                                     type="submit">Submit</button>
                                 </div> 
                              
-
                             </form>
                         </div>
                     </div>
