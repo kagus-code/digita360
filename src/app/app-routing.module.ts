@@ -33,7 +33,7 @@ const routes: Routes = [
   { path:'adminregister', component: AdminRegistrationComponent},
   { path:'adminlogin', component: AdminLoginComponent},
   { path:'adminverify', component: AdminVerificationComponent}, 
-  { path: 'userdetails', component: AdminVerificationdetailsComponent},
+  { path: 'userdetails/:phone_number', component: AdminVerificationdetailsComponent},
   { path: 'category-details', component:CategoryDetailsComponent}
 ];
 

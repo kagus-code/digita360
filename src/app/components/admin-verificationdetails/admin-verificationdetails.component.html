@@ -1,84 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Raleway:wght@200&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Raleway:wght@200;400&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
-    <title>Payment</title>
-</head>
-<body>
-    
-    <div class="header_fixed">
-        <app-adminnavbar></app-adminnavbar>
-        <br>
-        <br>
-        <br>
-        <table>
-            <thead>
-                <tr>
-                   <th>User ID</th>
-                   <th>National ID</th>
-                   <th>National ID Photo</th>
-                   <th>Personal Photo</th>
-                   <th>KRA Pin</th>
-                   <th>Driver License</th>
-                   <th>County Of Residence</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>ID</td>
-                    <td><img [src]="image1" alt="ID Photo"></td>
-                    <td><img [src]="image1" alt="Personal Photo"></td>
-                    <td>KRA PIN</td>
-                    <td><img [src]="image1" alt="Drivers License"></td>
-                    <td>Kiambu County</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>ID</td>
-                    <td><img [src]="image1" alt="ID Photo"></td>
-                    <td><img [src]="image1" alt="Personal Photo"></td>
-                    <td>KRA PIN</td>
-                    <td><img [src]="image1" alt="Drivers License"></td>
-                    <td>Kiambu County</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>ID</td>
-                    <td><img [src]="image1" alt="ID Photo"></td>
-                    <td><img [src]="image1" alt="Personal Photo"></td>
-                    <td>KRA PIN</td>
-                    <td><img [src]="image1" alt="Drivers License"></td>
-                    <td>Kiambu County</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>ID</td>
-                    <td><img [src]="image1" alt="ID Photo"></td>
-                    <td><img [src]="image1" alt="Personal Photo"></td>
-                    <td>KRA PIN</td>
-                    <td><img [src]="image1" alt="Drivers License"></td>
-                    <td>Kiambu County</td>
-                </tr>
-               
+<app-navbar></app-navbar>
+
+<div class="container my-3">
+    <div class="card mb-3" style="width: 100%;" *ngIf="details.identification_number; else notifySendDocs">
+        <div class="card-header">
+         Details for Username: <strong> {{ details.user.username}}</strong>
+
+         <a  href="#" class="btn btn-sm btn-success ml-2 float-right">
+            Approve
+         </a>
+         <a  href="#" class="btn btn-sm btn-warning  float-right">
+            Decline
+         </a>
+        </div>
+        <ul class="list-group list-group-flush" *ngIf="details.identification_number">
+          <li class="list-group-item">
+                ID/Passport No.:
+            <strong>
+                {{ details.identification_number}}
+            </strong>
+          </li>
+          <li class="list-group-item">
+            KRA Pin:
+            <strong>
+                {{ details.KRA_pin}}
+            </strong>
+          </li>
+          <li class="list-group-item">
+            County of Residence:
+            <strong>
+                {{ details.residence}}
+            </strong>
+          </li>
+          <li class="list-group-item">
+                Passport Photo:
+                    <br>
+                <img src="https://res.cloudinary.com/dtw9t2dom/{{details.passport_photo}}" alt="details.user.username" class="img-fluid mx-auto d-block">
+
                 
-                
-            </tbody>
-        </table>
-    </div>
+            </li>
+            <li class="list-group-item">
+                Identification Document:
+                    <br>
+                <img src="https://res.cloudinary.com/dtw9t2dom/{{details.identification_doc}}" alt="details.user.username" class="img-fluid  mx-auto d-block">
 
+            </li>
+            <li class="list-group-item" *ngIf="details.driving_license_picture">
+                Driving License Document:
+                    <br>
+                <img src="https://res.cloudinary.com/dtw9t2dom/{{details.driving_license_picture}}" alt="details.user.username" class="img-fluid  mx-auto d-block">
 
+            </li>
+        </ul>
+     
+      </div>
 
-</body>
+      <ng-template #notifySendDocs>
+                <div  class="card mb-3 my-2" >
+                    <a href="#" class="btn btn-sm btn-success btn-block">
+                        Notify user to upload verification documents
+                    </a>
+                </div>
+      </ng-template>
+</div>
