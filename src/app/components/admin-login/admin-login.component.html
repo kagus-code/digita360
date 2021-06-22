@@ -39,17 +39,7 @@
                         </div>
                         <div class="form-input">
                             <h2>Admin Login Form</h2>
-                                  <!-- on invalid form -->
-                                  <div *ngIf="submitted && !form.valid"  class="alert alert-danger alert-dismissible my-2" role="alert">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    <small>Invalid form, please provide all the required details.</small>
-                                </div>
-   
-                                <!-- on server_errors -->
-                                <div *ngIf="server_errors"  class="alert alert-danger alert-dismissible my-2" role="alert">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    <small class="my-2">{{server_errors.detail}}</small>
-                                </div>
+
                             <form [formGroup]="form"  (submit)="submit()"  >
                                 <div class="form-group">
                                     <input formControlName="phone_number" type="number"  id="phone_number" required>

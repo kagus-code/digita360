@@ -12,17 +12,7 @@
                         </div>
                         <div class="form-input">
                             <h2>Activation Form</h2>
-                            <!-- on invalid form -->
-                            <div *ngIf="submitted && !activationForm.valid"  class="alert alert-danger alert-dismissible my-2" role="alert">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <small>Invalid form, please provide all the required details.</small>
-                            </div>
 
-                            <!-- on server_errors -->
-                            <div *ngIf="server_errors"  class="alert alert-danger alert-dismissible my-2" role="alert">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> 
-                                <small>Documents have already been uploaded wait for approval.</small>
-                            </div>
 
                             <!-- form -->
                             <form *ngIf='success_submit' [formGroup]="activationForm" (ngSubmit)='onsubmit()' enctype="multipart/form-data">  

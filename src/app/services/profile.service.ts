@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class ProfileService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+
+  getCurrentUser(){
+    return this.http
+               .get('http://localhost:8000/api/user/current-user/',{withCredentials:true})
+  }
 }

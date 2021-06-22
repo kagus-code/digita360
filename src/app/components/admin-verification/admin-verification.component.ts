@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Emitters } from 'src/app/emitters/emitters';
+import { ProfileService } from 'src/app/services/profile.service';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -13,17 +14,33 @@ export class AdminVerificationComponent implements OnInit {
 
   users:any = ''
 
-  constructor(private userService:UserService) { }
+  user:any
+
+  constructor(private userService:UserService, private current_user:ProfileService) { }
 
   ngOnInit(): void {
+          //fetch current user
+          this.current_user
+              .getCurrentUser()
+              .subscribe(response =>{
+                  console.log(response);
+                  this.user = response;
+
+                  Emitters.authEmitter.emit(true)
+              },
+              error => {
+                console.log('error', error)
+            }
+          );
          
+          //fetch display users
+
           this.userService
               .getUnApprovedUsers()
               .subscribe(
                     res=>{
                         this.users = res
 
-                        Emitters.authEmitter.emit(true)
                     },
                     error=>{
                       console.log(error.error)

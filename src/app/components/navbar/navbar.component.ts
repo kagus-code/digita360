@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Emitters } from 'src/app/emitters/emitters';
 
 @Component({
@@ -12,7 +13,11 @@ export class NavbarComponent implements OnInit {
 
   authenticated= false;
 
-  constructor(private http:HttpClient, private router:Router) { }
+  constructor(
+                private http:HttpClient, 
+                private router:Router,
+                private toastr:ToastrService
+              ) { }
 
   ngOnInit():void{
         Emitters.authEmitter.subscribe(
@@ -29,7 +34,7 @@ export class NavbarComponent implements OnInit {
   
   logout ():void{
 
-        let cancel=confirm("Do you really want to Logout"); //ok cancel
+        let cancel=confirm("Do you really want to Logout"); 
 
 
         if(cancel){
@@ -39,6 +44,9 @@ export class NavbarComponent implements OnInit {
               response =>{
                 
                 this.authenticated = false;
+
+                this.toastr.success('Successful Logout')
+
                 this.router.navigateByUrl('/');
 
               })

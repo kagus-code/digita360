@@ -13,18 +13,6 @@
                         </div>
                         <div class="form-input">
                             <h2>Register</h2>
-
-                              <!-- on invalid form -->
-                              <div *ngIf="submitted && !form.valid"  class="alert alert-danger alert-dismissible my-2" role="alert">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <small>Invalid form, please provide all the required details.</small>
-                            </div>
-
-                            <!-- on server_errors -->
-                            <div *ngIf="errors"  class="alert alert-danger alert-dismissible my-2" role="alert">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> 
-                                <li class="my-1" *ngFor="let error of errors |  keyvalue">{{ error.value[0] }}</li>
-                            </div>
                             <!-- form -->
                             <form [formGroup]="form" (submit)="submit()">
                                 <div class="form-group">
@@ -58,7 +46,7 @@
                                 </div>
                                 <small class="help-block" *ngIf="!form.get('email').valid && form.get('email').touched">
                                    
-                                    Please enter username!
+                                    Please enter an email!
                               </small> 
                                 <div class="form-group">
                                     <input formControlName="phone_number"  type="number"  id="number" name="name" required>
