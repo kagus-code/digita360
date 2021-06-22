@@ -22,7 +22,11 @@
                     <td>{{ user.email}}</td>
                     <td>{{ user.phone_number}}</td>
                     <td>
-                            <a href="/lorem/{{user.phone_number}}">user</a>
+                            <!-- <a href="/lorem/{{user.phone_number}}">user</a> -->
+                            <a class="btn btn-outline-info btn-sm" [routerLink]="['/userdetails',user.phone_number]">
+                                Verify  <i class="fa fa-eye ml-2" aria-hidden="true"></i>
+                            </a>
+
                     </td>
             </tr>
           
