@@ -154,7 +154,7 @@ table{
 .header_fixed thead th{
   position: sticky;
   top: 0;
-  background-color:black;
+  background-image: linear-gradient(to right,#1877F2 ,#51bbb0 , #075a52 );
   color: #e6e7e8;
   font-size:15px;
   font-weight: 800;
@@ -195,5 +195,7 @@ td button{
 ::-webkit-scrollbar{
   width: 6px;
 }
-
-
+.th-custom{
+  background-image: linear-gradient(to right,#1877F2 ,#51bbb0 , #075a52 );
+  /* background-color: yellow; */
+}

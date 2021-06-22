@@ -7,12 +7,13 @@
             <div class="card-header">
                 Details for Username: <strong> {{ details.user.username | titlecase}}</strong>
        
-                <a  href="#" class="btn btn-sm btn-success ml-2 float-right">
+                <button class="btn btn-sm btn-primary ml-2 float-right" (click)="activateDocuments(details.user.phone_number)">
                    Approve
-                </a>
-                <a  href="#" class="btn btn-sm btn-warning  float-right">
-                   Decline
-                </a>
+                </button> 
+                <!-- declineUploadDocuments -->
+                <button class="btn btn-sm btn-danger float-right" (click)="declineUploadDocuments(details.user.phone_number)">
+                    Decline
+                 </button>
                </div>
                <ul class="list-group list-group-flush" *ngIf="details.identification_number">
                  <li class="list-group-item">
@@ -36,20 +37,20 @@
                  <li class="list-group-item">
                        Passport Photo:
                            <br>
-                       <img src="https://res.cloudinary.com/dtw9t2dom/{{details.passport_photo}}" alt="details.user.username" class="img-fluid mx-auto d-block">
+                       <img src="https://res.cloudinary.com/dcllyqc40/{{details.passport_photo}}" alt="details.user.username" class="img-fluid mx-auto d-block">
        
                        
                    </li>
                    <li class="list-group-item">
                        Identification Document:
                            <br>
-                       <img src="https://res.cloudinary.com/dtw9t2dom/{{details.identification_doc}}" alt="details.user.username" class="img-fluid  mx-auto d-block">
+                       <img src="https://res.cloudinary.com/dcllyqc40/{{details.identification_doc}}" alt="details.user.username" class="img-fluid  mx-auto d-block">
        
                    </li>
                    <li class="list-group-item" *ngIf="details.driving_license_picture">
                        Driving License Document:
                            <br>
-                       <img src="https://res.cloudinary.com/dtw9t2dom/{{details.driving_license_picture}}" alt="details.user.username" class="img-fluid  mx-auto d-block">
+                       <img src="https://res.cloudinary.com/dcllyqc40/{{details.driving_license_picture}}" alt="details.user.username" class="img-fluid  mx-auto d-block">
        
                    </li>
                </ul>
@@ -61,9 +62,9 @@
 
     <ng-template #notifySendDocs>
             <div  class="card mb-3 my-2" >
-                <a href="#" class="btn btn-sm btn-success btn-block">
+                <button class="btn btn-sm btn-success btn-block" (click)="notifyUploadDocuments(phone_number)">
                     Notify user to upload verification documents
-                </a>
+                </button>
             </div>
     </ng-template>
 
