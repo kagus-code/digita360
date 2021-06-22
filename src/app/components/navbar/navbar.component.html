@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #bf362e;">
+<nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand text-white" routerLink="/home" >
         <h2>
           Digital 360
@@ -19,6 +19,7 @@
           </li>
           <li class="nav-item ml-2" >
             <a   *ngIf="authenticated" class="nav-link" (click)="logout()">
+              <i class="fa fa-sign-out-alt mr-1" aria-hidden="true"></i>
                   Logout
            </a>
            <a   *ngIf="!authenticated"  class="nav-link" routerLink='/'>

@@ -31,7 +31,7 @@ export class LandingComponent implements OnInit {
                 this.message ="no user found";
 ​
             }
-        );
+          );
         
   }
 ​

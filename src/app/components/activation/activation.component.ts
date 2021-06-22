@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {  ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-activation',
@@ -25,7 +26,14 @@ export class ActivationComponent implements OnInit {
   loading:boolean = false
 
 
-  constructor(private http:HttpClient, private router:Router, private route:ActivatedRoute) { }
+  constructor(
+              private http:HttpClient, 
+              private router:Router, 
+              private route:ActivatedRoute,
+              private toastr:ToastrService
+              ) { }
+
+
 
   ngOnInit(): void {
     this.activationForm = new FormGroup({
@@ -88,9 +96,10 @@ export class ActivationComponent implements OnInit {
                         .post(`http://localhost:8000/api/activation-post/${this.phone_number}/`,formData)  
                         .subscribe( 
                             response =>{  
-                                this.success= "Your documents have been uploaded pending verification and approval."
 
                                 this.loading=false
+
+                                this.toastr.success('Your documents have been uploaded pending verification and approval.', 'Uploading successful')
    
                                 this.activationForm.reset()
 
@@ -103,16 +112,18 @@ export class ActivationComponent implements OnInit {
                               {
                                 console.log(error);
                                 
-                                this.server_errors= true
+                                // this.server_errors= true
                               
                                 this.loading=false
                                 
-                              
+                                this.toastr.warning('Documents have already been uploaded wait for approval.', 'Uploading unsuccessful')
                               }
                             
                         )
         }else{
-          this.loading=false
+              this.loading=false
+
+              this.toastr.error('Invalid form, please provide all the required details.', 'Uploading unsuccessful')
         }
 
 
