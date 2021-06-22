@@ -51,7 +51,6 @@ import { ToastrModule } from 'ngx-toastr';
     AdminVerificationComponent,
     AdminVerificationdetailsComponent,
     AdminnavbarComponent,
-
   ],
   imports: [
     BrowserModule,

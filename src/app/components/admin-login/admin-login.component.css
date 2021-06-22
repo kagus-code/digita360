@@ -17,7 +17,7 @@ a,a:hover{
 }
 .myform-area .form-area{
   position: relative;
-  background:#AB2346;
+  background-image: linear-gradient(to bottom right,#1877F2 ,#51bbb0 , #075a52 );
   width: 100%;
   height: auto;
   overflow: hidden;
@@ -175,7 +175,7 @@ a,a:hover{
     width: 100%;
     height: 50px;
     font-size: 17px;
-    background:#AB2346;
+    background-image: linear-gradient(to bottom right,#1877F2 ,#51bbb0 , #075a52 );
     border: none;
     border-radius: 50px;
     color: #fff;

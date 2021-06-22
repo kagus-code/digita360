@@ -83,4 +83,24 @@ export class RegistrationComponent implements OnInit {
         }
 
 
+  // submit(): void{
+  //   this.submitted=true
+  //   if(this.form.valid){
+  //     this.loading=true
+  //     this.http.post('http://localhost:8000/api/user/register/',this.form.getRawValue())
+  //       .subscribe(
+  //             response =>{console.log(response)
+  //             alert("You have been Successfully Registered")
+  //             this.router.navigate(['/activation',this.form.get('phone_number').value]);
+  //             },
+  //             error =>
+  //               {
+  //                   console.log(error.error)
+  //                   this.errors= error.error
+  //                   this.loading=false
+  //                   this.submitted=false
+  //               })
+  //           }
+  //         }
+
 }

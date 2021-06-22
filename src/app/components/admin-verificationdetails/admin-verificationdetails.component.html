@@ -7,11 +7,11 @@
             <div class="card-header">
                 Details for Username: <strong> {{ details.user.username | titlecase}}</strong>
        
-                <button class="btn btn-sm btn-success ml-2 float-right" (click)="activateDocuments(details.user.phone_number)">
+                <button class="btn btn-sm btn-primary ml-2 float-right" (click)="activateDocuments(details.user.phone_number)">
                    Approve
                 </button> 
                 <!-- declineUploadDocuments -->
-                <button class="btn btn-sm btn-warning float-right" (click)="declineUploadDocuments(details.user.phone_number)">
+                <button class="btn btn-sm btn-danger float-right" (click)="declineUploadDocuments(details.user.phone_number)">
                     Decline
                  </button>
                </div>

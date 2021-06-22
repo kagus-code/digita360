@@ -12,8 +12,10 @@
                            <h2>Login Form</h2>
                            <form [formGroup]="form"  (submit)="submit()"  >
                                <div class="form-group">
+                                    
                                    <input formControlName="phone_number" type="number"  id="phone_number" name="PhoneNumber"  required>
                                    <label>Phone Number</label>
+                                   
                                </div>
                                <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">
                                  
