@@ -39,7 +39,7 @@ export class AdminLoginComponent implements OnInit {
    if(this.form.valid){
            this.loading=true
  
-           this.http.post('http://localhost:8000/api/user/login/',this.form.getRawValue(),
+           this.http.post('http://localhost:8000/api/admin/login/',this.form.getRawValue(),
            {withCredentials:true})
            .subscribe(
              response => {
