@@ -7,12 +7,13 @@
             <div class="card-header">
                 Details for Username: <strong> {{ details.user.username | titlecase}}</strong>
        
-                <a  href="#" class="btn btn-sm btn-success ml-2 float-right">
+                <button class="btn btn-sm btn-success ml-2 float-right" (click)="activateDocuments(details.user.phone_number)">
                    Approve
-                </a>
-                <a  href="#" class="btn btn-sm btn-warning  float-right">
-                   Decline
-                </a>
+                </button> 
+                <!-- declineUploadDocuments -->
+                <button class="btn btn-sm btn-warning float-right" (click)="declineUploadDocuments(details.user.phone_number)">
+                    Decline
+                 </button>
                </div>
                <ul class="list-group list-group-flush" *ngIf="details.identification_number">
                  <li class="list-group-item">
@@ -61,9 +62,9 @@
 
     <ng-template #notifySendDocs>
             <div  class="card mb-3 my-2" >
-                <a href="#" class="btn btn-sm btn-success btn-block">
+                <button class="btn btn-sm btn-success btn-block" (click)="notifyUploadDocuments(phone_number)">
                     Notify user to upload verification documents
-                </a>
+                </button>
             </div>
     </ng-template>
 
