@@ -19,7 +19,7 @@ export class ActivationComponent implements OnInit {
 
   success:any
 
-  success_submit:boolean=true
+  success_submit:boolean=false
 
   submitted:boolean=false;
 
@@ -105,7 +105,7 @@ export class ActivationComponent implements OnInit {
 
                                 this.submitted=false
 
-                                this.success_submit=false
+                                this.success_submit=true
                               },
                               
                               error => 

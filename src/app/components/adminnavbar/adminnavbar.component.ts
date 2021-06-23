@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Emitters } from 'src/app/emitters/emitters';
+import { AdminAuthenticationService } from 'src/app/services/admin-authentication.service';
+
 
 @Component({
   selector: 'app-adminnavbar',
@@ -15,41 +17,50 @@ export class AdminnavbarComponent implements OnInit {
         constructor(
                     private http:HttpClient,
                     private toastr:ToastrService,
-                    private router:Router
+                    private router:Router,
+                    private currentAdmin:AdminAuthenticationService
+
                     ) { }
 
 
         ngOnInit():void{
-          Emitters.authEmitter.subscribe(
-                        (res:boolean) => 
-                                {
-                                  this.authenticated=res
-                                  // console.log(res);
-                                  
-                                }              
-          )    
+          this.currentAdmin.currentAdmin.subscribe( x => this.authenticated=x )
+          
+
       }
 
 
 
       logout ():void{
 
-          let cancel=confirm("Do you really want to Logout"); 
+          let confirmation=confirm("Do you really want to Logout"); 
 
 
-          if(cancel){
-              this.http
-              .post('http://localhost:8000/logout/',{},{withCredentials:true})
-              .subscribe(
-                response =>{
-                  
-                  this.authenticated = false;
+          if(confirmation){
+              this.currentAdmin
+                  .logout()
+                  .subscribe(
+                    response =>{
+                      
+                      this.authenticated = false;
 
-                  this.toastr.success('Successful Logout')
+                      this.toastr.success('Successful Logout')
 
-                  this.router.navigateByUrl('/adminlogin');
+                      this.router.navigateByUrl('/adminlogin');
 
-                })
+                      // location.reload();
+
+                  },
+                  error=>{
+                       console.log(error);
+                       this.toastr.error('Unsuccessful Logout')
+                  }
+                    
+                    
+                    
+                    
+                  )
+
           }
 
         

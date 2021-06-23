@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule , routingComponents} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -27,6 +27,9 @@ import { AdminVerificationComponent } from './components/admin-verification/admi
 import { AdminVerificationdetailsComponent } from './components/admin-verificationdetails/admin-verificationdetails.component';
 import { AdminnavbarComponent } from './components/adminnavbar/adminnavbar.component';
 import { ToastrModule } from 'ngx-toastr';
+import { JwtInterceptor } from './services/jwt-interceptor.service';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+
 
 
 @NgModule({
@@ -51,6 +54,8 @@ import { ToastrModule } from 'ngx-toastr';
     AdminVerificationComponent,
     AdminVerificationdetailsComponent,
     AdminnavbarComponent,
+    ErrorPageComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,10 @@ import { ToastrModule } from 'ngx-toastr';
                 preventDuplicates:true
     })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

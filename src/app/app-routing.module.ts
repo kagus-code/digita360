@@ -15,13 +15,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminVerificationdetailsComponent } from './components/admin-verificationdetails/admin-verificationdetails.component';
 import { CategoryDetailsComponent } from './components/category-details/category-details.component';
+import { AuthGuard } from './services/auth-guard.service';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { AdminAuthGuard } from './services/admin-auth.service';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  { path: '', component: LandingComponent,  canActivate:[AuthGuard] },
+  { path: 'userlogin', component: LoginComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: 'activation/:id', component: ActivationComponent},
-  { path: 'home', component: LandingComponent},
   { path: 'payment', component: PaymentComponent, 
       children: [
         { path: 'sendmoney', component: SendmoneyComponent},
@@ -32,9 +35,12 @@ const routes: Routes = [
   { path:'password', component: PasswordComponent},
   { path:'adminregister', component: AdminRegistrationComponent},
   { path:'adminlogin', component: AdminLoginComponent},
-  { path:'adminverify', component: AdminVerificationComponent}, 
-  { path: 'userdetails/:phone_number', component: AdminVerificationdetailsComponent},
-  { path: 'category-details', component:CategoryDetailsComponent}
+  { path:'adminverify', component: AdminVerificationComponent, canActivate:[AdminAuthGuard]}, 
+  { path: 'userdetails/:phone_number', component: AdminVerificationdetailsComponent,  canActivate:[AdminAuthGuard]},
+  { path: 'category-details', component:CategoryDetailsComponent},
+  { path:'page-not-found', component:ErrorPageComponent},
+  { path:'**', redirectTo:'/page-not-found', pathMatch:'full'}
+
 ];
 
 @NgModule({

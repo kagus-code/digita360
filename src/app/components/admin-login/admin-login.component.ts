@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AdminAuthenticationService } from 'src/app/services/admin-authentication.service';
 
 
 @Component({
@@ -19,12 +20,21 @@ export class AdminLoginComponent implements OnInit {
         loading:boolean=false
         
         server_errors:any
+
+        returnUrl:any
         
         constructor(
-                private http: HttpClient,
+                private route: ActivatedRoute,
                 private router: Router,
-                private toastr:ToastrService
-        ) { }
+                private toastr:ToastrService,
+                private adminAuthService:AdminAuthenticationService
+        ) {
+                 // redirect to home if already logged in
+            if (this.adminAuthService.currentAdminValue) { 
+              this.router.navigate(['/adminverify']);
+       }
+         }
+
         
         
         ngOnInit(): void {
@@ -32,6 +42,10 @@ export class AdminLoginComponent implements OnInit {
             'phone_number':new FormControl(null, [Validators.required]),
             'password':new FormControl(null, [Validators.required]),
           });
+
+             // get return url from route parameters or default to '/adminlogin'
+             this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/adminlogin';
+
         }
         
         submit(): void{
@@ -41,29 +55,29 @@ export class AdminLoginComponent implements OnInit {
           if(this.form.valid){
                   this.loading=true
         
-                  this.http.post('http://localhost:8000/api/user/login/',this.form.getRawValue(),
-                  {withCredentials:true})
-                  .subscribe(
-                    response => {
-                            this.toastr.success('Successful Login')
-                            
-                            this.router.navigateByUrl('adminverify');
-                    },
-                    error =>{
-                      this.loading=false
+                  this.adminAuthService
+                      .login(this.form.getRawValue())
+                      .subscribe(
+                        response => {
+                                this.toastr.success('Successful Login')
+                                
+                                this.router.navigate(['/adminverify']);
+                        },
+                        error =>{
+                          this.loading=false
 
-                      this.toastr.error(error.error.detail,'Login Unsuccessful!');
-        
-                      console.log('error', error)
-                    }
-                  );
+                          this.toastr.error(error.error.detail,'Login Unsuccessful!');
+            
+                          console.log('error', error)
+                        }
+                      );
+
           }else{
             this.toastr.error('Invalid form, please provide all the required details.','Login Unsuccessful!');
           }
         
         
         }
-
 
 
 }

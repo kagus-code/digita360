@@ -7,12 +7,17 @@
             <div class="card-header">
                 Details for Username: <strong> {{ details.user.username | titlecase}}</strong>
        
-                <button class="btn btn-sm btn-primary ml-2 float-right" (click)="activateDocuments(details.user.phone_number)">
+                <button class="btn btn-sm btn-primary ml-2 float-right"  [disabled]='approveloader' (click)="activateDocuments(details.user.phone_number)">
                    Approve
+                   <mat-icon *ngIf='approveloader'><mat-spinner color="warn" diameter="20">
+                </mat-spinner></mat-icon>
                 </button> 
                 <!-- declineUploadDocuments -->
-                <button class="btn btn-sm btn-danger float-right" (click)="declineUploadDocuments(details.user.phone_number)">
+                <button class="btn btn-sm btn-danger float-right"  [disabled]='declineloader' (click)="declineUploadDocuments(details.user.phone_number)">
                     Decline
+                    <mat-icon *ngIf='declineloader'><mat-spinner color="warn" diameter="20">
+                    </mat-spinner></mat-icon>
+
                  </button>
                </div>
                <ul class="list-group list-group-flush" *ngIf="details.identification_number">
@@ -61,9 +66,14 @@
     </div>
 
     <ng-template #notifySendDocs>
+        
+      
             <div  class="card mb-3 my-2" >
-                <button class="btn btn-sm btn-success btn-block" (click)="notifyUploadDocuments(phone_number)">
+                <button class="btn btn-sm btn-success btn-block" [disabled]='notifyloader' (click)="notifyUploadDocuments(phone_number)">
                     Notify user to upload verification documents
+                    <mat-icon *ngIf='notifyloader'><mat-spinner color="warn" diameter="20">
+                    </mat-spinner></mat-icon>
+
                 </button>
             </div>
     </ng-template>
