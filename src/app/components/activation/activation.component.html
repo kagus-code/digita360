@@ -13,10 +13,9 @@
                         <div class="form-input">
                             <h2>Activation Form</h2>
 
-
                             <!-- form -->
-                            <form *ngIf='success_submit' [formGroup]="activationForm" (ngSubmit)='onsubmit()' enctype="multipart/form-data">  
-                                <div class="form-group">
+                            <form *ngIf='!success_submit' [formGroup]="activationForm" (ngSubmit)='onsubmit()' enctype="multipart/form-data">  
+                    <div class="form-group">
                                     <input 
                                       type="number"  
                                       id="nat_id" 
@@ -113,6 +112,19 @@
                                 </div> 
                              
                             </form>
+                            <!-- on submit  -->
+                            <div *ngIf='success_submit' class="card text-white bg-success my-3" >
+                                <div class="card-header">Successful documents submission.</div>
+                                <div class="card-body">
+                                  
+                                  <p class="card-text">
+                                      Please wait for verification and approval upon which you'll get an approval email and a login link. Thank you.
+                                    </p>
+                                </div>
+                              </div>
+
+
+
                         </div>
                     </div>
                 </div>

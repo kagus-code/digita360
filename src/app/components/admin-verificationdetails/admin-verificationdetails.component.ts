@@ -19,6 +19,14 @@ export class AdminVerificationdetailsComponent implements OnInit {
 
             loading:boolean = true
 
+            notifyloader:boolean = false
+
+            approveloader:boolean = false
+
+            declineloader:boolean = false
+            
+
+
             image1:string = 'assets/Untitled design.png'
 
             constructor(
@@ -72,45 +80,66 @@ export class AdminVerificationdetailsComponent implements OnInit {
 
 
             activateDocuments(phone_number:any){
+                  this.approveloader=true
+
+
                   this.userService
                       .approveDocuments(phone_number)
                       .subscribe( 
                                     res=>{
                                           this.toastr.success('User approved.')
+                                          this.approveloader=false
+
                                           this.router.navigate(['/adminverify'])
                                     },
                                     error=>{
                                           console.log(error.error)
+                                          this.approveloader=false
+
                                           this.toastr.error('Error approving documents.')
                                     }
                                 )
             }
 
             notifyUploadDocuments(phone_number:any){
+                  this.notifyloader=true
+
+
                   this.userService
                       .notifyUploadDocuments(phone_number)
                       .subscribe(
                         res=>{
                               this.toastr.success('Notification to upload sent.')
                               this.router.navigate(['/adminverify'])
+                              this.notifyloader=false
+
                         },
                         error=>{
                               console.log(error.error)
                               this.toastr.error('Error notifying user.')
+                              this.notifyloader=false
+
                         }
                       )
             }
 
             declineUploadDocuments(phone_number:any){
+                  this.declineloader=true
+
+
                   this.userService
                       .declineDocs(phone_number)
                       .subscribe(
                         res=>{
                               this.toastr.success('Successful.Notification to reupload sent.')
+                              this.declineloader=false
+
                               this.router.navigate(['/adminverify'])
                         },
                         error=>{
                               console.log(error.error)
+                              this.declineloader=false
+
                               this.toastr.error('Error declining documents and notifying the user.')
                         }
                       )
