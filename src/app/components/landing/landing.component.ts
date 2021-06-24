@@ -33,7 +33,6 @@ export class LandingComponent implements OnInit {
 
       }
     );
-
         
   }
 

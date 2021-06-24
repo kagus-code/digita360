@@ -40,3 +40,16 @@
     background-color: rgb(245, 245, 245 , 0.9);
     
 }
+
+
+a{
+  cursor: pointer;
+}
+
+button{
+  color: white;
+}
+
+.card img{
+  height: 150px;
+}

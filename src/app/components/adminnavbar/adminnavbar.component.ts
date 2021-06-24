@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Emitters } from 'src/app/emitters/emitters';
 import { AdminAuthenticationService } from 'src/app/services/admin-authentication.service';
 
-
 @Component({
   selector: 'app-adminnavbar',
   templateUrl:'./adminnavbar.component.html',
