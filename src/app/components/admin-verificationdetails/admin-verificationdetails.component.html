@@ -1,81 +1,170 @@
 <app-adminnavbar></app-adminnavbar>
+<div class="container my-3" *ngIf="!loading">
+       <!-- details -->
+       <div class="row"  *ngIf="details.identification_number; else notifySendDocs">
+           <!-- verify -->
+           <div class="col-12">
 
-<div class="container my-3">
-   
-    <div class="card mb-3" style="width: 100%;" *ngIf="details.identification_number; else notifySendDocs">
-        <div *ngIf="!loading">
-            <div class="card-header">
-                Details for Username: <strong> {{ details.user.username | titlecase}}</strong>
-       
-                <button class="btn btn-sm btn-primary ml-2 float-right"  [disabled]='approveloader' (click)="activateDocuments(details.user.phone_number)">
-                   Approve
-                   <mat-icon *ngIf='approveloader'><mat-spinner color="warn" diameter="20">
-                </mat-spinner></mat-icon>
-                </button> 
-                <!-- declineUploadDocuments -->
-                <button class="btn btn-sm btn-danger float-right"  [disabled]='declineloader' (click)="declineUploadDocuments(details.user.phone_number)">
-                    Decline
-                    <mat-icon *ngIf='declineloader'><mat-spinner color="warn" diameter="20">
-                    </mat-spinner></mat-icon>
+                <div class="my-2 float-md-right">
+                    <button class="bg-info mr-2" [disabled]='approveloader' mat-button (click)="activateDocuments(details.user.phone_number)">
+                        Approve
+                        <mat-icon  *ngIf='approveloader' ><mat-spinner diameter="20"></mat-spinner></mat-icon>
+                    </button>
+                    <button class="bg-danger float-right"  [disabled]='declineloader'  mat-button (click)="declineUploadDocuments(details.user.phone_number)">
+                        Decline
+                        <mat-icon  *ngIf='declineloader' ><mat-spinner diameter="20"></mat-spinner></mat-icon>
+                    </button>
+                </div>
+           </div>
+           <div class="col-md-3">
+                <div class="card mb-3" style="width: 100%;" >
+                    <div >
+                        <div class="card-header">
+                           Details
+                        </div>
+                        <ul class="list-group list-group-flush" *ngIf="details.identification_number">
+                            <li class="list-group-item">
+                                Details for Username:
+                            <strong>
+                                {{ details.user.username | titlecase}}
+                            </strong>
+                        </li>
+                            <li class="list-group-item">
+                                ID/Passport No.:
+                            <strong>
+                                {{ details.identification_number}}
+                            </strong>
+                            </li>
+                            <li class="list-group-item">
+                            KRA Pin:
+                            <strong>
+                                {{ details.KRA_pin}}
+                            </strong>
+                            </li>
+                            <li class="list-group-item">
+                            County of Residence:
+                            <strong>
+                                {{ details.residence}}
+                            </strong>
+                            </li>
+                        
+                        </ul>
+                        <div class="card-footer">.</div>
+                    </div>
+                </div>
+           </div>
+           <!-- passport -->
+           <div class="col-md-3">
+                <div class="card transform-on-hover">
+                    <div class="card-header">Passport Photo</div>
+                    <a class="lightbox" href=""  data-toggle="modal" data-target="#passport" >
+                        <img src="https://res.cloudinary.com/dcllyqc40/{{details.passport_photo}}"  style="width: 100%;" class="img-fluid">
+                    </a>
+                    <div class="card-footer"  data-toggle="modal" data-target="#passport">
+                        <button mat-button class="bg-info" >Zoom-in</button>
+                    </div>
+                </div>
+                <!-- modal -->
+                <div>
+                    <div class="modal fade" id="passport" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                        <div class="modal-dialog modal-full">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalLabel">Passport</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="https://res.cloudinary.com/dcllyqc40/{{details.passport_photo}}" class="img-fluid  mx-auto d-block" >
+                            </div>
+                        
+                        </div>
+                        </div>
+                    </div>
 
-                 </button>
-               </div>
-               <ul class="list-group list-group-flush" *ngIf="details.identification_number">
-                 <li class="list-group-item">
-                       ID/Passport No.:
-                   <strong>
-                       {{ details.identification_number}}
-                   </strong>
-                 </li>
-                 <li class="list-group-item">
-                   KRA Pin:
-                   <strong>
-                       {{ details.KRA_pin}}
-                   </strong>
-                 </li>
-                 <li class="list-group-item">
-                   County of Residence:
-                   <strong>
-                       {{ details.residence}}
-                   </strong>
-                 </li>
-                 <li class="list-group-item">
-                       Passport Photo:
-                           <br>
-                       <img width="300px"  height="300px" src="https://res.cloudinary.com/dcllyqc40/{{details.passport_photo}}" alt="details.user.username" class="img-fluid mx-auto d-block">
-       
-                       
-                   </li>
-                   <li class="list-group-item">
-                       Identification Document:
-                           <br>
-                       <img width="300px"  height="300px" src="https://res.cloudinary.com/dcllyqc40/{{details.identification_doc}}" alt="details.user.username" class="img-fluid  mx-auto d-block">
-       
-                   </li>
-                   <li class="list-group-item" *ngIf="details.driving_license_picture">
-                       Driving License Document:
-                           <br>
-                       <img width="300px"  height="300px"  src="https://res.cloudinary.com/dcllyqc40/{{details.driving_license_picture}}" alt="details.user.username" class="img-fluid  mx-auto d-block">
-       
-                   </li>
-               </ul>
-        </div>
-        <div  *ngIf="loading">
-            <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
-        </div>
-    </div>
+                </div>
+            </div>
+            <!-- driving license -->
+            <div class="col-md-3"  *ngIf="details.driving_license_picture">
+                <div class="card transform-on-hover">
+                    <div class="card-header">Driving License Photo</div>
+                    <a class="lightbox" data-toggle="modal" data-target="#dl" >
+                        <img src="https://res.cloudinary.com/dcllyqc40/{{details.driving_license_picture}}"  style="width: 100%;"  class="img-fluid">
+                    </a>
+                    <div class="card-footer"  data-toggle="modal" data-target="#dl">
+                        <button mat-button class="bg-info" >Zoom-in</button>
+                    </div>
+                </div>
+                <!-- modal -->
+                <div >
+                    <div class="modal fade" id="dl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                        <div class="modal-dialog modal-full">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalLabel">Driving License Photo</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="https://res.cloudinary.com/dcllyqc40/{{details.driving_license_picture}}" class="img-fluid mx-auto d-block" >
+                            </div>
+                        
+                        </div>
+                        </div>
+                    </div>
 
-    <ng-template #notifySendDocs>
-        
-      
-            <div  class="card mb-3 my-2" >
+                </div>
+            </div>
+            <!-- driving license -->
+            <div class="col-md-3">
+                <div class="card transform-on-hover">
+                    <div class="card-header">ID/Passport Doc Photo</div>
+                    <a class="lightbox" data-toggle="modal" data-target="#id_no" >
+                        <img src="https://res.cloudinary.com/dcllyqc40/{{details.identification_doc}}"  style="width: 100%;"  class="img-fluid">
+                    </a>
+                    <div class="card-footer"  data-toggle="modal" data-target="#id_no">
+                        <button mat-button class="bg-info" >Zoom-in</button>
+                    </div>
+                </div>
+                <!-- modal -->
+                <div >
+                    <div class="modal fade" id="id_no" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                        <div class="modal-dialog modal-full">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h4 class="modal-title" id="exampleModalLabel"> ID /Passport Document Photo</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="https://res.cloudinary.com/dcllyqc40/{{details.identification_doc}}" class="img-fluid mx-auto d-block" >
+                            </div>
+                        
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+       </div>
+       <!-- end row 1  -->
+       <ng-template #notifySendDocs>
+            <div  class="card my-2" >
                 <button class="btn btn-sm btn-success btn-block" [disabled]='notifyloader' (click)="notifyUploadDocuments(phone_number)">
                     Notify user to upload verification documents
                     <mat-icon *ngIf='notifyloader'><mat-spinner color="warn" diameter="20">
                     </mat-spinner></mat-icon>
-
                 </button>
             </div>
-    </ng-template>
-
+      </ng-template>
 </div>
+
+
+<!-- loading entire content loader -->
+
+<mat-card class="my-3 container" *ngIf="loading">
+    <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+</mat-card>

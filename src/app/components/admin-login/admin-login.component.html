@@ -42,7 +42,7 @@
 
                             <form [formGroup]="form"  (submit)="submit()"  >
                                 <div class="form-group">
-                                    <input formControlName="phone_number" type="number"  id="phone_number" required>
+                                    <input formControlName="phone_number" type="tel" maxlength="10" id="phone_number" required>
                                     <label>Phone Number</label>
                                 </div>
                                 <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">
@@ -65,7 +65,7 @@
   
                                 </div>
                                 <div class="form-content">
-                                    <a routerLink="/adminregister"><label for="">Sign Up Here!</label></a>  
+                                    <a routerLink="/adminregister">Sign Up Here!</a>  
                                 </div>
                                
                             </form>

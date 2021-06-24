@@ -4,7 +4,6 @@ import { Emitters } from 'src/app/emitters/emitters';
 import { ProfileService } from 'src/app/services/profile.service';
 import { UserService } from 'src/app/services/user.service';
 
-
 @Component({
   selector: 'app-admin-verification',
   templateUrl: './admin-verification.component.html',
@@ -34,7 +33,6 @@ export class AdminVerificationComponent implements OnInit {
           );
          
           //fetch display users
-
           this.userService
               .getUnApprovedUsers()
               .subscribe(
@@ -56,7 +54,6 @@ export class AdminVerificationComponent implements OnInit {
             .subscribe(
                  res => console.log(res)
             )
-
   }
 
 }

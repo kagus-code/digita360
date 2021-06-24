@@ -34,7 +34,6 @@ export class ActivationComponent implements OnInit {
               ) { }
 
 
-
   ngOnInit(): void {
     this.activationForm = new FormGroup({
       'identification_number':new FormControl(null, [Validators.required]),
