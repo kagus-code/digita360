@@ -13,11 +13,12 @@
                            <form [formGroup]="form"  (submit)="submit()"  >
                                <div class="form-group">
                                     
-                                   <input formControlName="phone_number" type="number"  id="phone_number" name="PhoneNumber"  required>
+                                   <input formControlName="phone_number"   id="phone_number" name="PhoneNumber" type="tel" maxlength="10" required>
+
                                    <label>Phone Number</label>
                                    
                                </div>
-                               <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">
+                               <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched" >
                                  
                                    Please enter phone number!
                              </small>
@@ -37,7 +38,7 @@
  
                                </div>
                                <div class="form-content">
-                                   <a routerLink="/registration"><label for="">Sign Up Here!</label></a>  
+                                   <a routerLink="/registration">Sign Up Here!</a>  
                                </div>
                               
                            </form>
