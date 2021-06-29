@@ -1,0 +1,43 @@
+<section class="myform-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+               
+                <div class="form-area login-form">
+                    <div class="form-content">
+                        <h2>Account</h2>
+                        <p>
+                            Kindly provide account name.
+                        </p>
+                    </div>
+                    <div class="form-input">
+                        <h2>Account Name</h2>
+                        <form [formGroup]="form"  (submit)="submit()">
+                            <div class="form-group">
+                                 
+                                <input formControlName="account_name"   id="account_name" name="AccountName" type="text" required>
+
+                                <label>Account Name</label>
+                                
+                            </div>
+                            <small class="help-block" *ngIf="!form.get('account_name').valid && form.get('account_name').touched" >
+                              
+                                Please enter account name!
+                          </small>
+                           
+                          <div *ngIf='loading' class="mt-3">
+                            <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+                          </div>
+                            <div class="myform-button">
+                                <button class="myform-btn" type="submit"  >Submit</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

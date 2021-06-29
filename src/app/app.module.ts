@@ -29,7 +29,8 @@ import { AdminnavbarComponent } from './components/adminnavbar/adminnavbar.compo
 import { ToastrModule } from 'ngx-toastr';
 import { JwtInterceptor } from './services/jwt-interceptor.service';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
-
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { TransactComponent } from './components/transact/transact.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,8 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     AdminnavbarComponent,
 
     ErrorPageComponent,
+     CreateAccountComponent,
+     TransactComponent,
 
   ],
   imports: [

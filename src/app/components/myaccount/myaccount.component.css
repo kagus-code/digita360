@@ -1,0 +1,9 @@
+.amt-balance{
+    box-shadow: -2px 4px #888888;
+    border-radius: 5px;
+    padding: 19px;
+}
+.amt{
+    font-weight: bold;
+    font-size: 22px;
+}
