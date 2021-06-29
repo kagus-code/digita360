@@ -50,7 +50,7 @@ export class RegistrationComponent implements OnInit {
 
 
             this.http.
-                      post('http://localhost:8000/api/user/register/',this.form.getRawValue())
+                      post('https://kagusdigital360.herokuapp.com/api/user/register/',this.form.getRawValue())
                       .subscribe(
                           response =>{
                             console.log(response)

@@ -25,7 +25,7 @@ export class AdminAuthenticationService {
           //   admin login
             login(credentials) {
                 return this.http
-                      .post<any>('http://localhost:8000/api/admin/login/', credentials)
+                      .post<any>('http://localhost:8000/api/admin/login/', credentials,{withCredentials:true})
                       .pipe(map(user => {
                         // store user details and jwt token in local storage to keep user logged in between page refreshes
                         localStorage.setItem('currentAdmin', JSON.stringify(user));
