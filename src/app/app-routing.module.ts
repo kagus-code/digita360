@@ -18,10 +18,16 @@ import { CategoryDetailsComponent } from './components/category-details/category
 import { AuthGuard } from './services/auth-guard.service';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { AdminAuthGuard } from './services/admin-auth.service';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { MyaccountComponent } from './components/myaccount/myaccount.component';
+import { TransactComponent } from './components/transact/transact.component';
 
 
 const routes: Routes = [
   { path: '', component: LandingComponent,  canActivate:[AuthGuard] },
+  { path:'accountname', component:CreateAccountComponent,  canActivate:[AuthGuard] },
+  { path:'my-account', component:MyaccountComponent,  canActivate:[AuthGuard] },
+  { path:'transact', component:TransactComponent,  canActivate:[AuthGuard] },
   { path: 'userlogin', component: LoginComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: 'activation/:id', component: ActivationComponent},

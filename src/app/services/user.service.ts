@@ -17,7 +17,7 @@ export class UserService {
    return this.http
         .get('http://localhost:8000/api/get-invalidcustomers/')
         .pipe( 
-          map(   //Observable operator
+          map(   // operator
                 (responseData) =>{
                     
 

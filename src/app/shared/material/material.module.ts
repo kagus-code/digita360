@@ -6,6 +6,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon'
+import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
+import {MatFormFieldModule} from '@angular/material/form-field'
  
 const material =[
    MatBadgeModule,
@@ -13,7 +15,9 @@ const material =[
    MatCardModule,
    MatProgressBarModule,
    MatProgressSpinnerModule,
-   MatIconModule
+   MatIconModule,
+   MatAutocompleteModule,
+   MatFormFieldModule,
 ]
 
 

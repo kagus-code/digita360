@@ -14,25 +14,45 @@ export class LandingComponent implements OnInit {
   message =" "
 ​
   name='csrftoken'
-  constructor(private http:HttpClient, private current_user:ProfileService) { }
+
+  account:any = ''
+  constructor(private http:HttpClient, 
+              private current_user:ProfileService,
+              
+              ) { }
 
   ngOnInit(): void {
-    this.current_user
-        .getCurrentUser()
-        .subscribe(response =>{
-            console.log('Lorem ipsum');
-            
-            console.log(response);
-            this.user = response;
+            //fetches current user
+            this.current_user
+                .getCurrentUser()
+                .subscribe(response =>{
+                    console.log('Lorem ipsum');
+                    
+                    console.log(response);
+                    this.user = response;
 
-            Emitters.authEmitter.emit(true)
-        },
-        error => {
-          console.log('error', error)
-          this.message ="no user found";
 
-      }
-    );
+                    //fetch accounts details
+                    this.current_user
+                    .getAccountDetails(this.user.phone_number)
+                    .subscribe(
+                      response => {
+                          this.account = response
+                          console.log(response)
+                      },
+                      error=>{
+                            console.log(error)
+                      }
+                    )
+                },
+                error => {
+                  console.log('error', error)
+                  this.message ="no user found";
+
+              }
+            );
+
+
         
   }
 ​

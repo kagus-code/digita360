@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ export class AuthenticationService {
 
       private currentUserSubject: BehaviorSubject<any>;
       public currentUser: Observable<any>;
+
+      userObj: BehaviorSubject<any>=new BehaviorSubject<any>('')
 
       constructor(private http: HttpClient) {
           this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
@@ -26,7 +29,8 @@ export class AuthenticationService {
     //   user login
       login(credentials) {
           return this.http
-                 .post<any>('http://localhost:8000/api/user/login/', credentials, {withCredentials:true})
+                 .post<any>(`${environment.apiUrl}/api/user/login/`, credentials,{withCredentials:true})
+
                  .pipe(map(user => {
                   // store user details and jwt token in local storage to keep user logged in between page refreshes
                   localStorage.setItem('currentUser', JSON.stringify(user));
@@ -44,7 +48,7 @@ export class AuthenticationService {
 
         return this.http
                     .post(
-                          'http://localhost:8000/logout/',
+                          `${environment.apiUrl}/logout/`,
                             {},
                             {withCredentials:true}
                         )
@@ -52,16 +56,16 @@ export class AuthenticationService {
 
 
       //admin login
-      adminlogin(credentials) {
-        return this.http
-               .post<any>('http://localhost:8000/api/admin/login/', credentials)
-               .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
-                return user;
-            }));
-    }
+    //   adminlogin(credentials) {
+    //     return this.http
+    //            .post<any>('http://localhost:8000/api/admin/login/', credentials)
+    //            .pipe(map(user => {
+    //             // store user details and jwt token in local storage to keep user logged in between page refreshes
+    //             localStorage.setItem('currentUser', JSON.stringify(user));
+    //             this.currentUserSubject.next(user);
+    //             return user;
+    //         }));
+    // }
 
 
 

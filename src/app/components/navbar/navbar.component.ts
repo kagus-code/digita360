@@ -28,8 +28,8 @@ export class NavbarComponent implements OnInit {
                   response =>{
                     this.authenticated = false;
                     this.toastr.success('Successful Logout')
-                    // this.router.navigateByUrl('/userlogin');
-                    location.reload();
+                    this.router.navigateByUrl('/userlogin');
+                    // location.reload();
                   },
                   error=>{
                        console.log(error);
