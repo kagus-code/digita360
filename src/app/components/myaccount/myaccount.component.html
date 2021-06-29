@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
 <div class="container">
     <div class="row">
-        
-       
+
+
         <div class="col-md-3">
             <div class="my-3 amt-balance text-center">
                 <div class="amt">
-                
-                        {{account.account_name}}
-                
-                </div> 
+
+                    {{account.account_name}}
+
+                </div>
                 <div class="amt-tag">
                     Account Name
                 </div>
@@ -18,10 +18,10 @@
         <div class="col-md-3">
             <div class="my-3 amt-balance text-center">
                 <div class="amt">
-                
-                       {{account.acc_number}}
-                
-                </div> 
+
+                    {{account.acc_number}}
+
+                </div>
                 <div class="amt-tag">
                     Account No.
                 </div>
@@ -30,24 +30,24 @@
         <div class="col-md-3">
             <div class="my-3 amt-balance text-center">
                 <div class="amt">
-                
-                        Ksh {{account.account_balance}}
-                
-                </div> 
+
+                    Ksh {{account.account_balance}}
+
+                </div>
                 <div class="amt-tag">
-                    Amount Balance
+                    Account Balance
                 </div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="my-3 amt-balance text-center">
                 <div class="amt text-center">
-                
-                       <span style="cursor: pointer;"  data-toggle="modal" data-target="#amount">
+
+                    <span style="cursor: pointer;" data-toggle="modal" data-target="#amount">
                            <i class="fa fa-plus-circle"></i>
                        </span>
-                
-                </div> 
+
+                </div>
                 <div class="amt-tag">
                     Deposit
                 </div>
@@ -55,75 +55,75 @@
         </div>
     </div>
     <!-- transactions -->
-    
+
     <div class="row mt-3">
         <div class="col-md-6">
-          <h3>Transactions</h3>
+            <h3>Transactions</h3>
         </div>
         <div class="col-md-6">
-          <h3>Insights</h3>
+            <h3>Insights</h3>
         </div>
-        
+
         <div class="col-12">
             <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Account No.</th>
-                <th scope="col">Account Name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Amount</th>
+                <thead class="thead-dark2">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Account No.</th>
+                        <th scope="col">Account Name</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Amount</th>
 
-                <th scope="col">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let transaction of transactions; index as i">
-                <td>{{ i+1 }}</td>
-                <td>{{ transaction.recipient_account}}</td>
-                <td>{{ transaction.recipient_name}}</td>
-                <td>{{ transaction.category.name }}</td>
-                <td>{{ transaction.amount}}</td>
-                <td>{{ transaction.trans_date | date:'short'}}</td>
-                
-              </tr>
-              
-            </tbody>
-          </table>
+                        <th scope="col">Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transaction of transactions; index as i">
+                        <td>{{ i+1 }}</td>
+                        <td>{{ transaction.recipient_account}}</td>
+                        <td>{{ transaction.recipient_name}}</td>
+                        <td>{{ transaction.category.name }}</td>
+                        <td>{{ transaction.amount}}</td>
+                        <td>{{ transaction.trans_date | date:'short'}}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
-      
+
 
     </div>
-    
-<!-- Modal -->
-<div class="modal fade" id="amount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3 class="modal-title" id="exampleModalLabel">Deposit Money</h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+    <!-- Modal -->
+    <div class="modal fade" id="amount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Deposit Money</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
-        <div class="modal-body">
-                  <!-- form -->
-                  <form  [formGroup]="form" (ngSubmit)='submit()' >
-                    <div class="form-group">
-                      <input type="number" class="form-control " formControlName="account_balance" id="amount" placeholder="Amount">
-                    </div>
-                    <small class="help-block" *ngIf="!form.get('account_balance').valid && form.get('account_balance').touched">
+                </div>
+                <div class="modal-body">
+                    <!-- form -->
+                    <form [formGroup]="form" (ngSubmit)='submit()'>
+                        <div class="form-group">
+                            <input type="number" class="form-control " formControlName="account_balance" id="amount" placeholder="Amount">
+                        </div>
+                        <small class="help-block" *ngIf="!form.get('account_balance').valid && form.get('account_balance').touched">
                                    
                       Please enter the amount!
-                    </small> 
+                    </small>
 
-                    <button type="submit" class="btn btn-primary">Deposit</button>
-                  </form>
+                        <button type="submit" class="btn btn-primary">Deposit</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
 
 
 
-</div>  
+</div>

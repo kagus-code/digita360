@@ -1,54 +1,44 @@
-  <section class="myform-area">
-       <div class="container">
-           <div class="row justify-content-center">
-               <div class="col-lg-8">
-                  
-                   <div class="form-area login-form">
-                       <div class="form-content">
-                           <h2>Login</h2>
-                           <p>
-                               Kindly login to access Digital360 services. 
-                          </p>
-                       </div>
-                       <div class="form-input">
-                           <h2>Login Form</h2>
-                           <form [formGroup]="form"  (submit)="submit()"  >
-                               <div class="form-group">
-                                    
-                                   <input formControlName="phone_number"   id="phone_number" name="PhoneNumber" type="tel" maxlength="10" required>
-
-                                   <label>Phone Number</label>
-                                   
-                               </div>
-                               <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched" >
-                                 
-                                   Please enter phone number!
-                             </small>
-                               <div class="form-group">
-                                   <input formControlName="password" type="password" id="password" name="Password" required>
-                                   <label>password</label>
-                               </div>
-                               <small class="help-block" *ngIf="!form.get('password').valid && form.get('password').touched">
-                                 
-                                   Please enter password!
-                             </small>
-                             <div *ngIf='loading' class="mt-3">
-                               <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
-                             </div>
-                               <div class="myform-button">
-                                   <button class="myform-btn" type="submit"  >Login</button>
- 
-                               </div>
-                               <div class="form-content">
-                                   <a routerLink="/registration">Sign Up Here!</a>  
-                               </div>
-                              
-                           </form>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
- 
- 
+<section class="myform-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="form-area login-form">
+                    <div class="form-content">
+                        <h2>Login</h2>
+                        <p>
+                            Kindly login to access Digital360 services.
+                        </p>
+                    </div>
+                    <div class="form-input">
+                        <h2>Login Form</h2>
+                        <form [formGroup]="form" (submit)="submit()">
+                            <div class="form-group">
+                                <input formControlName="phone_number" id="phone_number" name="PhoneNumber" type="tel" maxlength="10" required>
+                                <label>Phone Number</label>
+                            </div>
+                            <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">
+                                Please enter phone number!
+                            </small>
+                            <div class="form-group">
+                                <input formControlName="password" type="password" id="password" name="Password" required>
+                                <label>password</label>
+                            </div>
+                            <small class="help-block" *ngIf="!form.get('password').valid && form.get('password').touched">
+                                Please enter password!
+                            </small>
+                            <div *ngIf='loading' class="mt-3">
+                                <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+                            </div>
+                            <div class="myform-button">
+                                <button class="myform-btn" type="submit">Login</button>
+                            </div>
+                            <div class="form-content">
+                                <a routerLink="/registration">Sign Up Here!</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

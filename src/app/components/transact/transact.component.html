@@ -4,63 +4,50 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                
-                
+
+
                 <div class="form-area login-form">
                     <div class="form-content">
                         <h2>Transact</h2>
                         <p> Go ahead and make any transactions in a convenient way.</p>
-                        
+
                     </div>
                     <div class="form-input">
                         <h2>Transaction Form</h2>
 
                         <!-- form -->
-                        <form [formGroup]="form" (ngSubmit)='submit()' enctype="multipart/form-data">  
-                <div class="form-group">
-                                <input 
-                                  type="text"  
-                                  id="recipient_name" 
-                                  formControlName="recipient_name"
-
-                                  required>
+                        <form [formGroup]="form" (ngSubmit)='submit()' enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="text" id="recipient_name" formControlName="recipient_name" required>
                                 <label>Recipient Account Name</label>
                             </div>
                             <!-- identification_number errors msgs -->
                             <small class="help-block" *ngIf="!form.get('recipient_name').valid && form.get('recipient_name').touched">
                                
                                     Please enter Recipient Account Name!
-                              </small>  
-                            
-   
+                              </small>
+
+
                             <div class="form-group">
-                                <input 
-                                type="number"  
-                                id="recipient_account" 
-                                formControlName="recipient_account" 
-                                required>
+                                <input type="number" id="recipient_account" formControlName="recipient_account" required>
                                 <label>Account Number</label>
                             </div>
                             <small class="help-block" *ngIf="!form.get('recipient_account').valid && form.get('recipient_account').touched">
                                
                                 Please enter Account Number!
-                          </small>  
+                          </small>
 
-                          <div class="form-group">
-                            <input 
-                            type="number"  
-                            id="amount" 
-                            formControlName="amount" 
-                            required>
-                            <label>Amount</label>
-                        </div>
-                        <small class="help-block" *ngIf="!form.get('amount').valid && form.get('amount').touched">
+                            <div class="form-group">
+                                <input type="number" id="amount" formControlName="amount" required>
+                                <label>Amount</label>
+                            </div>
+                            <small class="help-block" *ngIf="!form.get('amount').valid && form.get('amount').touched">
                             
                                 Please enter Amount!
-                        </small>  
-                            
+                        </small>
+
                             <div class="form-group">
-                                <select id="category" formControlName="category"  class="form-control my-3" >
+                                <select id="category" formControlName="category" class="form-control my-3">
                                     <option [ngValue]="null" disabled>Choose Category</option>
                                        <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
                                 </select>
@@ -83,17 +70,15 @@
                             <small class="help-block" *ngIf="!form.get('category').valid && form.get('category').touched">
                                
                                 Please enter a category!
-                          </small>  
-                          <div *ngIf='loading' class="mt-3">
-                            <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
-                          </div>
-                           
+                          </small>
+                            <div *ngIf='loading' class="mt-3">
+                                <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+                            </div>
+
                             <div class="myform-button">
-                                <button 
-                                class="myform-btn" 
-                                type="submit">Submit</button>
-                            </div> 
-                         
+                                <button class="myform-btn" type="submit">Transact</button>
+                            </div>
+
                         </form>
 
 
@@ -103,5 +88,3 @@
         </div>
     </div>
 </section>
-
-
