@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ProfileService } from 'src/app/services/profile.service';
+import { TransactionService } from 'src/app/services/transaction.service';
+
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -20,8 +22,16 @@ export class MyaccountComponent implements OnInit {
 
   account:any = ''
 
+  transactions:any=''
 
-  constructor(private current_user:ProfileService, private http:HttpClient, private toastr:ToastrService) { }
+
+  constructor(
+                private current_user:ProfileService, 
+                private http:HttpClient, 
+                private toastr:ToastrService,
+                private transactService:TransactionService
+              ) { }
+
 
   ngOnInit(): void {
             //fetches current user
@@ -46,6 +56,21 @@ export class MyaccountComponent implements OnInit {
                             console.log(error)
                       }
                     )
+
+                    //fetch transactions
+                       this.transactService
+                           .getTransactions(this.user.phone_number)
+                           .subscribe( 
+                                      res=>{ 
+                                             this.transactions=res
+                                             console.log(res);
+                                             
+                                             }, 
+                                      error=>{
+                                              console.log(error);
+                                            }
+                                  )
+
                 },
                 error => {
                   console.log('error', error)
@@ -60,14 +85,7 @@ export class MyaccountComponent implements OnInit {
             
             })
 
-            //current user
-            //get user instance
-            // this.current_user.getCurrentUser()
-            //     .subscribe(
-            //          res => {
-            //                this.user=res
-            //          }
-            //     )
+
 
 
   }
@@ -75,7 +93,10 @@ export class MyaccountComponent implements OnInit {
 
 
   submit(){
-       this.http.patch(`${environment.apiUrl}/api/deposit/${this.user.phone_number}/`,this.form.getRawValue())
+
+    if(this.form.valid){
+      this.http.patch(`${environment.apiUrl}/api/deposit/${this.user.phone_number}/`,this.form.getRawValue())
+
             .subscribe(
               res => {
                 this.toastr.success('Successful deposit.')
@@ -83,9 +104,15 @@ export class MyaccountComponent implements OnInit {
                 location.reload()
               },
               error=>{
-                this.toastr.success(error.error,'Unsuccessful deposit.')
+                this.toastr.error(error.error,'Unsuccessful deposit.')
               }
             )
+    }else{
+
+              this.toastr.error('Please enter the amount you want to deposit', 'Unsuccessful Deposit')
+    }
+       
+
 
   }
 
