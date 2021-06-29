@@ -32,6 +32,7 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { TransactComponent } from './components/transact/transact.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
