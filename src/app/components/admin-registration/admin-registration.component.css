@@ -83,6 +83,9 @@ form input{
       background: #3aa696;
       color: #fff;
       }
+      .bg-custom img{
+        margin-top: 100px;
+      }
       .image{
         width: 100%;
       }

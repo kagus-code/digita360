@@ -23,16 +23,18 @@
 
           <form [formGroup]="form"  (submit)="submit()"  >
             <div class="form-group">
-                <input formControlName="phone_number" class="form-control" type="tel" maxlength="10" id="phone_number" required>
                 <label>Phone Number</label>
+                <input formControlName="phone_number" class="form-control" type="tel" maxlength="10" id="phone_number" required>
+  
             </div>
             <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">
               
                 Please enter phone number!
           </small>
             <div class="form-group">
-                <input formControlName="password" class="form-control" type="password" id="password" required>
                 <label>password</label>
+                <input formControlName="password" class="form-control" type="password" id="password" required>
+                
             </div>
             <small class="help-block" *ngIf="!form.get('password').valid && form.get('password').touched">
               
