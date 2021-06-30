@@ -164,9 +164,10 @@ a:hover {
     border-radius: 25px;
     outline: none;
     border: none;
-    background-image: linear-gradient(to bottom right, #FF3636, #F96332, #FF3636);
+    background-color: #42378f;
+    background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%);
     background-size: 200%;
-    font-size: 1.2rem;
+
     color: #fff;
     text-transform: uppercase;
     margin-right: 25%;
@@ -182,9 +183,9 @@ a:hover {
     padding: 1%;
     outline: none;
     border: none;
-    background-image: linear-gradient(to bottom right, #FF3636, #F96332, #FF3636);
+    background-color: #42378f;
+    background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%);
     background-size: 200%;
-    font-size: 1.2rem;
     color: #fff;
     text-transform: uppercase;
     margin-right: 25%;
@@ -193,7 +194,9 @@ a:hover {
     transition: .5s;
 }
 
-.btn:hover {
+.btn:hover,
+.btn1:hover {
+
     background-position: right;
 }
 
@@ -235,6 +238,7 @@ form {
     width: 100%;
     padding: 20px;
     border-radius: 6px;
-    box-shadow: 0 0 20px 0 orangered;
+    box-shadow: inset 0px 0 25px 0 #42378f, inset 0 0 15px 0px #f53844, inset 0 0 5px 0px #fff;
+
     margin-bottom: 3%;
 }

@@ -1,70 +1,66 @@
 <app-navbar></app-navbar>
+
+<!-- <app-user-navbar></app-user-navbar> -->
+<br>
 <div class="container">
     <div class="row">
-
-
-        <div class="col-md-3">
-            <div class="my-3 amt-balance text-center">
-                <div class="amt">
-
-                    {{account.account_name}}
-
-                </div>
-                <div class="amt-tag">
-                    Account Name
+        <div style="float:right" class="col-md-4 col-xl-3">
+            <div class="card bg-c-blue order-card">
+                <div class="card-block">
+                    <h3 class="m-b-20">Account Name</h3>
+                    <h2 class="text-right"><i class="f-left">
+                            <img src="https://img.icons8.com/clouds/45/000000/guest-male.png" />
+                        </i><span>{{account.account_name}}</span></h2>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="my-3 amt-balance text-center">
-                <div class="amt">
-
-                    {{account.acc_number}}
-
-                </div>
-                <div class="amt-tag">
-                    Account No.
+        <div style="float:right" class="col-md-4 col-xl-3">
+            <div class="card bg-c-yellow order-card">
+                <div class="card-block">
+                    <h3 class="m-b-20">Account Number</h3>
+                    <h2 class="text-right"><i class="f-left">
+                            <img src="https://img.icons8.com/color/45/000000/dialing-phone.png" />
+                        </i><span>{{account.acc_number}}</span></h2>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="my-3 amt-balance text-center">
-                <div class="amt">
-
-                    Ksh {{account.account_balance}}
-
-                </div>
-                <div class="amt-tag">
-                    Account Balance
+        <div style="float:right" class="col-md-4 col-xl-3">
+            <div class="card bg-c-pink order-card">
+                <div class="card-block">
+                    <h3 class="m-b-20">Account Balance</h3>
+                    <h2 class="text-right"><i class=" f-left">
+                            <img src="https://img.icons8.com/cute-clipart/35/000000/wallet-app.png" />
+                        </i><span> {{account.account_balance|currency:'Ksh '}}</span></h2>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="my-3 amt-balance text-center">
-                <div class="amt text-center">
-
-                    <span style="cursor: pointer;" data-toggle="modal" data-target="#amount">
-                           <i class="fa fa-plus-circle"></i>
-                       </span>
-
-                </div>
-                <div class="amt-tag">
-                    Deposit
+        <div style="float:right" class="col-md-4 col-xl-3">
+            <div class="card bg-c-green order-card">
+                <div class="card-block">
+                    <h3 class="m-b-20">Deposit Money</h3>
+                    <h1 class="text-right"><i class=" f-left">
+                            <img src="https://img.icons8.com/color/45/000000/cash-.png" />
+                        </i><span style="cursor: pointer;" data-toggle="modal" data-target="#amount">
+                            <i class="fa fa-plus-circle"></i>
+                        </span></h1>
                 </div>
             </div>
         </div>
     </div>
+
+
+
     <!-- transactions -->
 
     <div class="row mt-3">
         <div class="col-md-6">
-            <h3>Transactions</h3>
+            <h3  [ngClass]="{'bg-toggle': showTransactions}"  (click)="toggleComponents()" style="cursor: pointer;">Transactions</h3>
         </div>
         <div class="col-md-6">
-            <h3>Insights</h3>
+            <h3   [ngClass]="{'bg-toggle': showInsights}" (click)="toggleComponents()" style="cursor: pointer;">Insights</h3>
         </div>
 
-        <div class="col-12">
+        <div class="col-12"  *ngIf='showTransactions'>
             <table class="table">
                 <thead class="thead-dark2">
                     <tr>
@@ -91,6 +87,11 @@
                 </tbody>
             </table>
         </div>
+
+         <!-- insights -->
+         <div class="col-12" *ngIf='showInsights' >
+            <app-analytics ></app-analytics>
+          </div>
 
 
     </div>

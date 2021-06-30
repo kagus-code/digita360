@@ -1,11 +1,12 @@
-.nav-link{
+.nav-link {
     color: white !important;
 }
 
-.nav-link{
+.nav-link {
     cursor: pointer;
 }
 
-nav{
-    background-image: linear-gradient(to right,#F96332, #FF3636 );
+nav {
+    background-color: #42378f;
+    background-image: linear-gradient(315deg, #42378f 0%, #f53844 74%);
 }

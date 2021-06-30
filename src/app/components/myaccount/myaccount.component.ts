@@ -25,6 +25,10 @@ export class MyaccountComponent implements OnInit {
   transactions:any=''
 
 
+  showTransactions = true
+  showInsights = false
+
+
   constructor(
                 private current_user:ProfileService, 
                 private http:HttpClient, 
@@ -114,6 +118,12 @@ export class MyaccountComponent implements OnInit {
        
 
 
+  }
+
+
+  toggleComponents(){
+    this.showInsights = !this.showInsights
+    this.showTransactions = !this.showTransactions
   }
 
 }

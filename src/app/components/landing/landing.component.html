@@ -2,143 +2,135 @@
 </app-navbar>
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <!-- amount balance button -->
-            <div class="float-md-right my-3 amt-balance text-center">
-                <div class="amt">
-
-                    Ksh {{account.account_balance}}
-
-                </div>
-                <div class="amt-tag">
-                    Account Balance
+        <div style="float:right" class="col-md-12">
+            <div class="card bg-c-orange order-card float-md-right my-3 amtcard">
+                <div class="card-block">
+                    <h3 class="m-b-20">Account Balance</h3>
+                    <h2 class="text-right"><i class="fa fa-credit-card f-left">
+                        </i><span>{{account.account_balance|currency:"Ksh "}}</span></h2>
                 </div>
             </div>
         </div>
 
-        <div class="col-12">
-            <!-- favourites -->
-            <div class="favourites my-3 p-2 mx-auto">
-                <p class="favourites-tag">
-                    Favourites
-                </p>
-                <div class="favourites-items">
-                    <div class="fav-item">
-                        <div class="fav-item-inner mx-3">
-                            Food & Restaurant
-                        </div>
-                    </div>
-                    <div class="fav-item">
-                        <div class="fav-item-inner mx-3">
-                            Food & Restaurant
-                        </div>
-                    </div>
-                    <div class="fav-item">
-                        <div class="fav-item-inner mx-3">
-                            Food & Restaurant
-                        </div>
-                    </div>
-                    <div class="fav-item">
-                        <div class="fav-item-inner mx-3">
-                            Food & Restaurant
-                        </div>
-                    </div>
-                    <div class="fav-item">
-                        <div class="fav-item-inner mx-3">
-                            Food & Restaurant
-                        </div>
-                    </div>
-                    <div class="fav-item">
-                        <div class="fav-item-inner mx-3">
-                            Food & Restaurant
-                        </div>
-                    </div>
-                    <div class="fav-item">
-                        <div class="fav-item-inner mx-3">
-                            Food & Restaurant
-                        </div>
-                    </div>
-                    <div class="fav-item">
-                        <div class="fav-item-inner mx-3">
-                            Add <br>
-                            <span class="ml-2 add-fav-icon">
-                                    <i class="fas fa-plus-circle"></i>
-                                </span>
+    </div>
+</div>
 
-                        </div>
-                    </div>
 
+
+
+
+<div class="container">
+    <hr>
+    <h2 class="m-b-20">CATEGORIES</h2>
+</div>
+<!-- New Categories -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-xl-3">
+            <a routerLink="/transact" style="text-decoration: none;">
+                <div class="card bg-c-blue order-card">
+                    <div class="card-block">
+                        <h3 class="m-b-20">Food & Beverages</h3>
+                        <h2 class="text-right"><i class="f-left">
+                            <img src="https://img.icons8.com/office/35/000000/kawaii-french-fries.png">
+                        </i>
+                            <span>486</span>
+                        </h2>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
-        <div class="col-12 bills my-3 p-2">
-            <!-- bills items -->
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="my-3 bill-item text-center">
+        <div class="col-md-4 col-xl-3">
+            <a routerLink="/transact" style="text-decoration: none;">
 
-                        <div class="amt-tag">
-                            Food and Restaurant
-                        </div>
+                <div class="card bg-c-green order-card">
+                    <div class="card-block">
+                        <h3 class="m-b-20">Electricity</h3>
+                        <h2 class="text-right"><i class=" f-left">
+                            <img src="https://img.icons8.com/ios-filled/35/000000/electricity.png" />
+                        </i><span>486</span></h2>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="my-3 bill-item text-center">
+            </a>
+        </div>
+        <div class="col-md-4 col-xl-3">
+            <a routerLink="/transact" style="text-decoration: none;">
 
-                        <div class="amt-tag">
-                            Food and Restaurant
-                        </div>
+                <div class="card bg-c-yellow order-card">
+                    <div class="card-block">
+                        <h3 class="m-b-20">Fuel</h3>
+                        <h2 class="text-right"><i class=" f-left">
+                            <img src="https://img.icons8.com/ios-filled/35/000000/eco-fuel--v2.png" />
+                        </i><span>486</span></h2>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="my-3 bill-item text-center">
+            </a>
+        </div>
+        <div class="col-md-4 col-xl-3">
+            <a routerLink="/transact" style="text-decoration: none;">
 
-                        <div class="amt-tag">
-                            Food and Restaurant
-                        </div>
+                <div class="card bg-c-pink order-card">
+                    <div class="card-block">
+                        <h3 class="m-b-20">School Fees</h3>
+                        <h2 class="text-right"><i class=" f-left">
+                            <img src="https://img.icons8.com/ios-filled/35/000000/school.png" />
+                        </i><span>486</span></h2>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="my-3 bill-item text-center">
-
-                        <div class="amt-tag">
-                            Food and Restaurant
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="my-3 bill-item text-center">
-
-                        <div class="amt-tag">
-                            Food and Restaurant
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="my-3 bill-item text-center">
-
-                        <div class="amt-tag">
-                            Food and Restaurant
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="my-3 bill-item text-center">
-
-                        <div class="amt-tag">
-                            Add Bill Item
-                            <span class="ml-2 add-fav-icon">
-                            <i class="fas fa-plus-circle"></i>
-                        </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
+            </a>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-4 col-xl-3">
+            <a routerLink="/transact" style="text-decoration: none;">
 
+                <div class="card bg-c-green order-card">
+                    <div class="card-block">
+                        <h3 class="m-b-20">Groceries</h3>
+                        <h2 class="text-right"><i class=" f-left">
+                            <img src="https://img.icons8.com/fluent/35/000000/grocery-bag.png" />
+                        </i><span>486</span></h2>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-xl-3">
+            <a routerLink="/transact" style="text-decoration: none;">
 
+                <div class="card bg-c-yellow order-card">
+                    <div class="card-block">
+                        <h3 class="m-b-20">Entertainment</h3>
+                        <h2 class="text-right"><i class=" f-left">
+                            <img src="https://img.icons8.com/color/35/000000/netflix-desktop-app--v2.png" />
+                        </i><span>486</span></h2>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-xl-3">
+            <a routerLink="/transact" style="text-decoration: none;">
+
+                <div class="card bg-c-pink order-card">
+                    <div class="card-block">
+                        <h3 class="m-b-20">Rent</h3>
+                        <h2 class="text-right"><i class=" f-left">
+                            <img src="https://img.icons8.com/plasticine/35/000000/sell-property.png" />
+                        </i><span>486</span></h2>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 col-xl-3">
+
+            <div class="card bg-c-blue order-card">
+                <div routerLink="/" class="card-block">
+                    <h3 class="m-b-20">ADD</h3>
+                    <h2 class="text-right"><i class="f-left">
+                            <img src="https://img.icons8.com/ios-filled/35/000000/add--v2.png" />
+                        </i>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
