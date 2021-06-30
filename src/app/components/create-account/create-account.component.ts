@@ -30,7 +30,8 @@ export class CreateAccountComponent implements OnInit {
 
   ngOnInit(): void {
         this.form = new FormGroup({
-          'account_name':new FormControl(null, [Validators.required]),
+          'account_name': new FormControl(null, [Validators.required, Validators.maxLength(15)], 
+),
         });
 
 
