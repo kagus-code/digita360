@@ -31,6 +31,7 @@ import { JwtInterceptor } from './services/jwt-interceptor.service';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { TransactComponent } from './components/transact/transact.component';
+import { AnalyticsComponent } from './components/myaccount/analytics/analytics.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { TransactComponent } from './components/transact/transact.component';
     ErrorPageComponent,
      CreateAccountComponent,
      TransactComponent,
+     AnalyticsComponent,
 
   ],
   imports: [
