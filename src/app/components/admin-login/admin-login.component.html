@@ -1,78 +1,92 @@
    
-    <section class="myform-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    
-                    <div class="form-area login-form">
-                        <div class="form-content">
-                            <h2>Admin Login</h2>
-                            <p>Your data privacy is our highest priority</p>
-                            <ul>
-                                
-                                <li class="mb-2">
-                                    <a routerLink="/" class="facebook">
-                                        
-                                          <span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                                            </svg>  
-                                          </span>
-                                          <i></i>
-                                        <span>User Login</span>
-                                    </a>
-                                </li>
 
-                                <li>
-                                    <a routerLink="/registration" class="twitter">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-medical" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v.634l.549-.317a.5.5 0 1 1 .5.866L9 6l.549.317a.5.5 0 1 1-.5.866L8.5 6.866V7.5a.5.5 0 0 1-1 0v-.634l-.549.317a.5.5 0 1 1-.5-.866L7 6l-.549-.317a.5.5 0 0 1 .5-.866l.549.317V4.5A.5.5 0 0 1 8 4zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                                            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-                                            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-                                          </svg>
-                                        <i></i>
+<body>
+    
 
-                                    <span>User Registration</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="form-input">
-                            <h2>Admin Login Form</h2>
 
-                            <form [formGroup]="form"  (submit)="submit()"  >
-                                <div class="form-group">
-                                    <input formControlName="phone_number" type="tel" maxlength="10" id="phone_number" required>
-                                    <label>Phone Number</label>
-                                </div>
-                                <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">
-                                  
-                                    Please enter phone number!
-                              </small>
-                                <div class="form-group">
-                                    <input formControlName="password" type="password" id="password" required>
-                                    <label>password</label>
-                                </div>
-                                <small class="help-block" *ngIf="!form.get('password').valid && form.get('password').touched">
-                                  
-                                    Please enter password!
-                              </small>
-                              <div *ngIf='loading' class="mt-3">
-                                <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
-                              </div>
-                                <div class="myform-button">
-                                    <button class="myform-btn" type="submit"  >Login</button>
-  
-                                </div>
-                                <div class="form-content">
-                                    <a routerLink="/adminregister">Sign Up Here!</a>  
-                                </div>
-                               
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
+
+<div id="sect1" class="container-fluid section">
+    <div  class="container ">
+      <h2 class="text-center text-white p-2 pt-4">Digital360 Admin</h2>
+      <div class="row m-4">
+        <div class="col-md-6 col-sm-12 bg-custom none" >
+        <img class="image" src="assets/connect.svg" alt="">
         </div>
-    </section>
+        <div class="col-md-6 col-sm-12 bg-custom-form" style="background: rgba( 255, 255, 255, 0.25 );backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter: blur( 4px );">
+          <p class="text-center mb-0 pt-4">Admin Log in</p>
+
+
+
+
+          <form [formGroup]="form"  (submit)="submit()"  >
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input formControlName="phone_number" class="form-control" type="tel" maxlength="10" id="phone_number" required>
+  
+            </div>
+            <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">
+              
+                Please enter phone number!
+          </small>
+            <div class="form-group">
+                <label>password</label>
+                <input formControlName="password" class="form-control" type="password" id="password" required>
+                
+            </div>
+            <small class="help-block" *ngIf="!form.get('password').valid && form.get('password').touched">
+              
+                Please enter password!
+          </small>
+          <div *ngIf='loading' class="mt-3">
+            <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+          </div>
+            <div class="myform-button">
+                <button class="myform-btn btn btn-custom mb-3 mt-3" type="submit"  >Login</button>
+
+            </div>
+            <div class="form-content">
+                <a routerLink="/adminregister"> <button type="button" class="btn btn-outline-light">Admin Sign Up Here!</button></a>  
+            </div>
+           <br>
+        </form>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path
+        fill="#51bbb0  "
+        fill-opacity="1"
+        d="M0,0L60,42.7C120,85,240,171,360,181.3C480,192,600,128,720,101.3C840,75,960,85,1080,80C1200,75,1320,53,1380,42.7L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+      ></path>
+    </svg>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
 

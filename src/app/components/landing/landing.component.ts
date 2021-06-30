@@ -9,10 +9,10 @@ import { ProfileService } from 'src/app/services/profile.service';
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-
+​
   user:any = []
   message =" "
-
+​
   name='csrftoken'
 
   account:any = ''
@@ -57,5 +57,5 @@ export class LandingComponent implements OnInit {
 
         
   }
-
+​
 }
