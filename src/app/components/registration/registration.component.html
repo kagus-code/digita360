@@ -1,83 +1,96 @@
-
-   
-    <section class="myform-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    
-                    <div class="form-area login-form">
-                        <div class="form-content">
-                            <h2>Start Of A Great Journey</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla non aperiam cum quas quod reprehenderit.</p>
-                            
-                        </div>
-                        <div class="form-input">
-                            <h2>Register</h2>
-                            <!-- form -->
-                            <form [formGroup]="form" (submit)="submit()">
-                                <div class="form-group">
-                                    <input formControlName="first_name"  type="text"  id="first_name" name="name" required>
-                                    <label>First Name</label>
-                                </div>
-                                <small class="help-block" *ngIf="!form.get('first_name').valid && form.get('first_name').touched">
-                                   
-                                    Please enter first name!
-                              </small> 
-                                <div class="form-group">
-                                    <input formControlName="last_name" type="text"  id="last_name" name="name" required>
-                                    <label>Last Name</label>
-                                </div>
-                                <small class="help-block" *ngIf="!form.get('last_name').valid && form.get('last_name').touched">
-                                   
-                                    Please enter last name!
-                              </small> 
-                                <div class="form-group">
-                                    <input formControlName="username"  type="text" id="username" name="username" required>
-                                    <label>Username</label>
-                                </div>
-                                <small class="help-block" *ngIf="!form.get('username').valid && form.get('username').touched">
-                                   
-                                    Please enter username!
-                              </small> 
-                            
-                                <div class="form-group">
-                                    <input formControlName="email"  type="email"  id="email" name="email" required>
-                                    <label>Email</label>
-                                </div>
-                                <small class="help-block" *ngIf="!form.get('email').valid && form.get('email').touched">
-                                   
-                                    Please enter an email!
-                              </small> 
-                                <div class="form-group">
-                                    <input formControlName="phone_number"  type="tel"  id="number" name="name" maxlength="10" required>
-                                    <label>Phone Number</label>
-                                </div>
-
-                                 <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">
-                                   
-                                    Please enter phone number!
-                              </small> 
-                                <div class="form-group">
-                                    <input formControlName="password"  type="password" id="password" name="password"  required>
-                                    <label>password</label>
-                                </div>
-                                <small class="help-block" *ngIf="!form.get('password').valid && form.get('password').touched">
-                                   
-                                    Please enter password!
-                              </small> 
-                              <div *ngIf='loading' class="mt-3">
-                                <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
-                              </div>
-                                <div class="myform-button">
-                                    <button class="myform-btn" type="submit">Register</button>
-                                </div>
-                               
-                                
-                            </form>
-                        </div>
-                    </div>
+<img class="wave" [src]="image5">
+<div class="container">
+    <div class="img">
+        <img [src]="image4">
+    </div>
+    <div class="login-content">
+        <form [formGroup]="form" (submit)="submit()">
+            <img [src]="image3">
+            <h2 class="title">Register</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="div">
+                    <input class="input" formControlName="first_name" type="text" id="first_name" name="name" placeholder="First Name" required>
+                </div>
 
+            </div>
+            <small class="help-block" *ngIf="!form.get('first_name').valid && form.get('first_name').touched">
+            
+                Please enter first name!
+            </small>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input class="input" formControlName="last_name" type="text" id="last_name" name="name" placeholder="Last Name" required>
+                </div>
+
+            </div>
+            <small class="help-block" *ngIf="!form.get('last_name').valid && form.get('last_name').touched">
+            
+                Please enter last name!
+            </small>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input class="input" formControlName="username" type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+
+            </div>
+            <small class="help-block" *ngIf="!form.get('username').valid && form.get('username').touched">
+            
+                Please enter username!
+            </small>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input class="input" formControlName="email" type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+
+            </div>
+            <small class="help-block" *ngIf="!form.get('email').valid && form.get('email').touched">
+            
+                Please enter an email!
+            </small>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input class="input" formControlName="phone_number" type="tel" id="number" name="name" maxlength="10" placeholder="Phone Number" required>
+                </div>
+
+            </div>
+            <small class="help-block" *ngIf="!form.get('phone_number').valid && form.get('phone_number').touched">
+            
+                Please enter phone number!
+            </small>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <input class="input" formControlName="password" type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+
+            </div>
+            <small class="help-block" *ngIf="!form.get('password').valid && form.get('password').touched">
+            
+                Please enter password!
+            </small>
+            <div *ngIf='loading' class="mt-3">
+                <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+            </div>
+            <div class="myform-button">
+                <button class="myform-btn btn" type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+</div>

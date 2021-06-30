@@ -5,12 +5,17 @@ import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProfileService } from 'src/app/services/profile.service';
+
 @Component({
  selector: 'app-login',
  templateUrl: './login.component.html',
  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+      image2: string = '/assets/Untitled design.png'
+      image3: string = '/assets/images/avatar.svg'
+      image4: string = '/assets/images/transfer.svg'
+      image5: string = '/assets/images/wave.png'
       form! : FormGroup ;
       image1:string = 'assets/Untitled design.png'
       submitted:boolean=false

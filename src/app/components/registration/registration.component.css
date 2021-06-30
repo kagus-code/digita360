@@ -1,189 +1,227 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
 
-/* * {
-    margin:0;
-    padding:0;
-} */
-a,a:hover{
-  text-decoration: none;
+/* Alex */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-.myform-area{
+
+body {
+    font-family: 'Poppins', sans-serif;
     overflow: hidden;
-    padding: 40px 0;
-    background: #f5f5f5;
-    position: relative;
-    padding-top: 50px;
-    padding-bottom: 100px;
-}
-.myform-area .form-area{
-  position: relative;
-  background-image: linear-gradient(to bottom right,#FF3636 ,#F96332, #FF3636 );
-  width: 100%;
-  height:auto;
-  overflow: hidden;
-  box-shadow: 0 0 40px 0 #e1e1e1;
 }
 
-.myform-area .form-area .form-content,
-.myform-area .form-area .form-input{
-    position: relative;
-    width: 50%;
+.wave {
+    position: fixed;
+    bottom: 0;
+    left: 0;
     height: 100%;
-    float: left;
-    box-sizing: border-box;
+    z-index: -1;
 }
 
-.myform-area .form-area .form-content{
-  width: 50%;
-  padding: 40px 30px;
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 7rem;
+    padding: 0 2rem;
 }
 
-.myform-area .form-area .form-content h2{
-  color: #fff;
-}
-.myform-area .form-area .form-content p{
-  color: #fff;
-}
-.myform-area .form-area .form-content ul{
-  margin-top: 50px;
+.img {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.myform-area .form-area .form-content ul li{
-  display: inline-block;
-  margin-right: 10px;
-}
-.myform-area .form-area .form-content a i{
-    margin-right: 10px;
-}
-
-.myform-area .form-area .form-content .facebook{
-  display: block;
-  padding: 10px 20px;
-  background: #3B579D;
-  color: #fff;
-  font-size: 15px;
-  /* text-transform: capitalize; */
-  border-radius: 4px;
-  border: 1px solid #3B579D;
-  -webkit-transition: all .5s;
-  -o-transition: all .5s;
-  transition: all .5s;
+.login-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
 }
 
-.myform-area .form-area .form-content .facebook:hover,
-.myform-area .form-area .form-content .facebook:focus{
-    background: transparent;
+.img img {
+    width: 500px;
 }
 
-.myform-area .form-area .form-content .twitter{
-  display: block;
-   padding: 10px 20px;
-   background: #00ACED;
-   color: #fff;
-   font-size: 15px;
-   /* text-transform: capitalize; */
-   border-radius: 4px;
-   border: 1px solid #00ACED;
-   -webkit-transition: all .5s;
-   -o-transition: all .5s;
-   transition: all .5s;
+form {
+    width: 360px;
 }
 
-.myform-area .form-area .form-content .twitter:hover,
-.myform-area .form-area .form-content .twitter:focus{
-    background: transparent;
-}
-.myform-area .form-area .form-input{
-  background-color: white;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 0 40px 0 #e1e1e1;
-}
-.myform-area .form-area .form-input{
-    width: 50%;
-    background: #fff;
-    padding: 40px 30px;
+.login-content img {
+    height: 100px;
 }
 
-.myform-area .form-area .form-input h2{
-  margin-bottom: 20px;
-    color: #07315B;
+.login-content h2 {
+    margin: 15px 0;
+    color: #333;
 }
 
-.myform-area .form-area .form-input input{
+.login-content .input-div {
     position: relative;
-    height: 60px;
-    padding: 20px 0;
-}
-.myform-area .form-area .form-input textarea{
-    height: 120px;
-    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #D9D9D9;
 }
 
-.myform-area .form-area .form-input input,
-.myform-area .form-area .form-input textarea{
-    /* text-transform: capitalize; */
-    width: 100%;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    border-bottom: 2px solid #e1e1e1;
-    color: #07315B;
+.login-content .input-div.one {
+    margin-top: 0;
 }
-.myform-area .form-area .form-input form .form-group{
+
+.i {
+    color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.i i {
+    transition: .3s;
+}
+
+.input-div>div {
     position: relative;
+    height: 45px;
 }
-.myform-area .form-area .form-input form .form-group label{
+
+.input-div>div>h5 {
     position: absolute;
-    /* text-transform: capitalize; */
-    top: 20px;
-    left: 0;
-    pointer-events: none;
-    font-size: 14px;
-    color: #595959;
-    margin-bottom: 0;
-    transition: all .6s;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    transition: .3s;
 }
-.myform-area .form-area .form-input input:focus ~ label,
-.myform-area .form-area .form-input textarea:focus ~ label,
-.myform-area .form-area .form-input input:valid ~ label,
-.myform-area .form-area .form-input textarea:valid ~ label{
+
+.input-div:before,
+.input-div:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #F84D4C;
+    transition: .4s;
+}
+
+.input-div:before {
+    right: 50%;
+}
+
+.input-div:after {
+    left: 50%;
+}
+
+.input-div.focus:before,
+.input-div.focus:after {
+    width: 50%;
+}
+
+.input-div.focus>div>h5 {
     top: -5px;
-    opacity: 0;
+}
+
+.input-div.focus>.i>i {
+    color: #F84D4C;
+}
+
+.input-div>div>input {
+    position: absolute;
     left: 0;
-    color: rgba(103,58,183);
-    font-size: 12px;
-    color: #07315B;
-    font-weight: bold;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0.5rem 0.7rem;
+    color: #555;
+    font-family: 'poppins', sans-serif;
 }
-.myform-area .form-area .form-input input:focus,
-.myform-area .form-area .form-input textarea:focus,
-.myform-area .form-area .form-input input:valid,
-.myform-area .form-area .form-input textarea:valid{
-    border-bottom: 2px solid rgba(103,58,183);
+
+.input-div.pass {
+    margin-bottom: 4px;
 }
-.myform-area .form-area .form-text{
-    margin-top: 30px;
+
+a {
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #999;
+    font-size: 0.9rem;
+    transition: .3s;
 }
-.myform-area .form-area .form-text span a{
-    color: rgba(103,58,183);
+
+a:hover {
+    color: #F84D4C;
 }
-.myform-area .form-area .myform-button{
-    margin-top: 30px;
-}
-.myform-area .form-area .myform-button .myform-btn{
+
+.btn {
+    display: block;
     width: 100%;
     height: 50px;
-    font-size: 17px;
-    background-image: linear-gradient(to bottom right,#FF3636 ,#F96332, #FF3636 );
+    border-radius: 25px;
+    outline: none;
     border: none;
-    border-radius: 50px;
+    background-image: linear-gradient(to bottom right, #FF3636, #F96332, #FF3636);
+    background-size: 200%;
+    font-size: 1.2rem;
     color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    margin: 1rem 0;
     cursor: pointer;
-    -webkit-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
+    transition: .5s;
 }
-.myform-area .form-area .myform-button .myform-btn:hover{
-    background: #07315B;
+
+.btn:hover {
+    background-position: right;
+}
+
+@media screen and (max-width: 1050px) {
+    .container {
+        grid-gap: 5rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    form {
+        width: 290px;
+    }
+    .login-content h2 {
+        font-size: 2.4rem;
+        margin: 8px 0;
+    }
+    .img img {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .img {
+        display: none;
+    }
+    .wave {
+        display: none;
+    }
+    .login-content {
+        justify-content: center;
+    }
+}
+
+form {
+    width: 100%;
+    padding: 20px;
+    margin-top: 3% !important;
+    border-radius: 6px;
+    box-shadow: 0 0 20px 0 orangered;
+    margin-bottom: 3%;
 }

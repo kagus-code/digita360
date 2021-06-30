@@ -12,6 +12,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class RegistrationComponent implements OnInit {
 
+        image2: string = '/assets/Untitled design.png'
+        image3: string = '/assets/images/avatar.svg'
+        image4: string = '/assets/images/mobile.svg'
+        image5: string = '/assets/images/wave.png'
+
         form! : FormGroup ;
 
         errors:any
