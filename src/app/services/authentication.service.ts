@@ -58,7 +58,7 @@ export class AuthenticationService {
       //admin login
     //   adminlogin(credentials) {
     //     return this.http
-    //            .post<any>('http://localhost:8000/api/admin/login/', credentials)
+    //            .post<any>('https://kagusdigital360.herokuapp.com/api/admin/login/', credentials)
     //            .pipe(map(user => {
     //             // store user details and jwt token in local storage to keep user logged in between page refreshes
     //             localStorage.setItem('currentUser', JSON.stringify(user));

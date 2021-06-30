@@ -49,7 +49,7 @@ export class AdminRegistrationComponent implements OnInit {
 
 
       this.http.
-                post('http://localhost:8000/api/admin/register/',this.form.getRawValue())
+                post('https://kagusdigital360.herokuapp.com/api/admin/register/',this.form.getRawValue())
                 .subscribe(
                      response =>{console.log(response)
                       

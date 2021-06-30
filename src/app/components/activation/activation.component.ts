@@ -92,7 +92,7 @@ export class ActivationComponent implements OnInit {
     
         if(this.activationForm.valid){
                   this.http
-                        .post(`http://localhost:8000/api/activation-post/${this.phone_number}/`,formData)  
+                        .post(`https://kagusdigital360.herokuapp.com/api/activation-post/${this.phone_number}/`,formData)  
                         .subscribe( 
                             response =>{  
 

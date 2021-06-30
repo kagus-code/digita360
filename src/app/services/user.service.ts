@@ -15,7 +15,7 @@ export class UserService {
 
   getUnApprovedUsers(){
    return this.http
-        .get('http://localhost:8000/api/get-invalidcustomers/')
+        .get('https://kagusdigital360.herokuapp.com/api/get-invalidcustomers/')
         .pipe( 
           map(   // operator
                 (responseData) =>{
@@ -42,25 +42,25 @@ export class UserService {
 
    getUserDocuments(id:any){
     return this.http
-               .get(`http://localhost:8000/api/user/activation-documents/${id}/`)
+               .get(`https://kagusdigital360.herokuapp.com/api/user/activation-documents/${id}/`)
    }
 
 
    approveDocuments(phone_number:any){
         return this.http
-                .patch(`http://localhost:8000/api/activate-user/${phone_number}/`,{})
+                .patch(`https://kagusdigital360.herokuapp.com/api/activate-user/${phone_number}/`,{})
    }
 
 
    notifyUploadDocuments(phone_number:any){
         return this.http
-                .post(`http://localhost:8000/api/user/notify_email/${phone_number}/`,{})
+                .post(`https://kagusdigital360.herokuapp.com/api/user/notify_email/${phone_number}/`,{})
    }
 
 
    declineDocs(phone_number:any){
             return this.http
-                    .post(`http://localhost:8000/api/user/notifyreupload_email/${phone_number}/`,{})
+                    .post(`https://kagusdigital360.herokuapp.com/api/user/notifyreupload_email/${phone_number}/`,{})
    }
 
 

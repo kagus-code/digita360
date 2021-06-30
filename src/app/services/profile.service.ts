@@ -12,16 +12,16 @@ export class ProfileService {
 
   getCurrentUser(){
     return this.http
-               .get('http://localhost:8000/api/user/current-user/',{withCredentials:true})
+               .get('https://kagusdigital360.herokuapp.com/api/user/current-user/',{withCredentials:true})
   }
 
   createAccount(form, phone_number){
       return this.http
-                .post(`http://localhost:8000/api/create-new-account/${phone_number}/`,form)
+                .post(`https://kagusdigital360.herokuapp.com/api/create-new-account/${phone_number}/`,form)
   }
 
   getAccountDetails(phone_number){
     return this.http
-               .get(`http://localhost:8000/api/get-account-details/${phone_number}/`)
+               .get(`https://kagusdigital360.herokuapp.com/api/get-account-details/${phone_number}/`)
   }
 }
